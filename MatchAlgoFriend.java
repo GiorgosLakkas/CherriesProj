@@ -1,5 +1,5 @@
 
-
+/* 
 public class MatchAlgoFriend {
     private  String[] User1 = new String[22];
     private String[] User2 = new String[22];
@@ -67,4 +67,34 @@ public class MatchAlgoFriend {
      double match=0.5*matchbase+0.5*matchinterest;
      return match;
     }
+}
+*/
+
+import java.util.List;
+
+public  class MatchAlgoFriend{
+    public double compareUsers(User user1, User user2) {
+        List<String> characteristics1 = user1.getCharacteristics();
+        List<String> characteristics2 = user2.getCharacteristics();
+
+        int matchingCharacteristics = 0;
+        for (int i = 0; i < characteristics1.size(); i++) {
+            if (characteristics1.get(i).equals(characteristics2.get(i))) {
+                matchingCharacteristics++;
+            }
+        }
+
+        double basePercentage = ((double) matchingCharacteristics / characteristics1.size()) * 100;
+        double adjustedPercentage = adjustPercentage(basePercentage, matchingCharacteristics, characteristics1.size());
+
+        return adjustedPercentage;
+    }
+
+    private double adjustPercentage(double basePercentage, int matchingCharacteristics, int totalCharacteristics) {
+        double adjustmentFactor = matchingCharacteristics/220; // Adjustment factor to slightly increase or decrease the percentage
+        if (matchingCharacteristics > totalCharacteristics / 2) {
+            return basePercentage + adjustmentFactor * (matchingCharacteristics - totalCharacteristics / 2);
+        } else {
+            return basePercentage - adjustmentFactor * (totalCharacteristics / 2 - matchingCharacteristics);
+        }
 }
