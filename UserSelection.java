@@ -7,14 +7,26 @@ public class UserSelection {
     public UserSelection(){
     }
     // Μέθοδος για τη λήψη των επιλογών ηλικίας
-    public static List<Integer> getAgeOptions() {
-        return IntStream.rangeClosed(17, 100).boxed().collect(Collectors.toList());
+    public static int getValidAge(Scanner scanner) {
+        while (true) {
+            try {
+                System.out.println("Please enter your age (17-100):");
+                int age = Integer.parseInt(scanner.nextLine().trim());
+                if (age >= 17 && age <= 100) {
+                    return age;
+                } else {
+                    System.out.println("Invalid age. Please enter a number between 17 and 100.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
     }
     private static final List<String> genderOptions = List.of("Male", "Female", "Other");
     private static final List<String> universityOptions = List.of("Athens University of Economics and Business");
     private static final List<String> departmentOptions = List.of("International and European Economic Studies", "Economics", "Management Science and Technology", "Businesss Administration", "Accounting and Finance", "Marketing and Communication", "Informatics", "Statistics");
     private static final List<String> yearOptions = List.of("1st", "2nd", "3rd", "4th", "5th", "6th+");
-    private static final List<String> interestsOptions = List.of("Sports", "Gastronomy", "Yoga/Meditation", "Fitness", "Science", "History", "Volunteering", "Literature and Writing", "Online Hobbies/Social Media", "Scale Modeling/Modeling Building", "Music", "Foreign Languages", "Games and Entertainment", "Series/Movies", "Travelling", "Arts", "Technology", "Dance");
+    private static final List<String> interestsOptions = List.of("Arts", "Dance", "Fitness", "Foreign Languages", "Games and Entertainment", "Gastronomy", "History", "Literature and Writing", "Music", "Online Hobbies/Social Media", "Scale Modeling/Modeling Building", "Science", "Series/Movies", "Sports", "Technology", "Travelling", "Volunteering", "Yoga/Meditation");
     private static final List<String> volunteerActivitiesOptions = List.of("AIESEC", "Acein aueb", "ThinkBiz");
     
     public static List<String> getGenderOptions() {
@@ -69,7 +81,7 @@ public class UserSelection {
         for (int i = 0; i < options.size(); i++) {
             System.out.println((i + 1) + ". " + options.get(i));
         }
-        System.out.println("Insert the numbers of your choices, divided by comma (e.g. 1,2,3) or leave blank for no selection: ");
+        System.out.println("Insert the numbers of your choices, divided by comma (e.g. 1,2,3) or leave blank for no selection pressing Enter: ");
         System.out.println("You can select up to " + maxSelections + " options.");
 
         List<T> selectedOptions = new ArrayList<>();
