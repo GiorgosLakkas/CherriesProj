@@ -1,3 +1,4 @@
+package com.example.unimeets;
 import java.util.Date;
 
 public class Notification {

@@ -1,3 +1,4 @@
+package com.example.unimeets;
 public class Event {
     private String name;
 

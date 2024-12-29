@@ -1,3 +1,4 @@
+package com.example.unimeets;
 public class FilterCriteria {
      private Integer age;
      private String gender;

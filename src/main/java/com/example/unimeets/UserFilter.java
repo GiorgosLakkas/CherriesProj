@@ -1,3 +1,4 @@
+package com.example.unimeets;
 public class UserFilter {
 
     private Integer age;
