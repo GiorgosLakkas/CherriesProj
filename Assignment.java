@@ -1,5 +1,3 @@
-package com.example.unimeets;
-
 import java.util.*;
 public class Assignment {
     private String department;  // π.χ., ΔΕΤ, ΟΔΕ
