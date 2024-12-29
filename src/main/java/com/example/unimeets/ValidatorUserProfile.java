@@ -1,3 +1,4 @@
+package com.example.unimeets;
 import java.util.List;
 public class ValidatorUserProfile {
     public static boolean validate(UserProfile userProfile) {
