@@ -4,11 +4,11 @@ import java.util.Date;
 public class Notification {
     private String message;
     private Date timestamp;
-    private User recipient;
+    private UserProfile recipient;
     private boolean read;
 
     // Constructor
-    public Notification(String message, User recipient) {
+    public Notification(String message, UserProfile recipient) {
         this.message = message;
         this.timestamp = new Date(); // sets the current date and time
         this.recipient = recipient;
@@ -32,11 +32,11 @@ public class Notification {
         this.timestamp = timestamp;
     }
 
-    public User getRecipient() {
+    public UserProfile getRecipient() {
         return recipient;
     }
 
-    public void setRecipient(User recipient) {
+    public void setRecipient(UserProfile recipient) {
         this.recipient = recipient;
     }
 
