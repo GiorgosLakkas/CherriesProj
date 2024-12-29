@@ -5,9 +5,9 @@ server:
     include-binding-errors: always
 spring:
   datasource:
-    url: jdbc:mysql://localhost:8080/cherries
+    url: jdbc:mysql://localhost:8080/Cherries
     username: root
-    password: Cherriestheproj1!
+    password: fairyberry
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
