@@ -14,7 +14,7 @@ public class UserProfile {
     private int[] volunteerMatrix = new int[0]; // Αρχικοποίηση με κενό πίνακα
 
     public UserProfile() {}
-    
+
     public void setAge(int age) {
         if (age < 17 || age > 100) {
             throw new IllegalArgumentException("Age should be between 17 and 100.");
