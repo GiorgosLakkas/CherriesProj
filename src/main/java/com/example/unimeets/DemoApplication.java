@@ -1,5 +1,7 @@
 package com.example.unimeets;
 
+
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 import java.util.List;
 
 @SpringBootApplication
-public class DemoApplication {
+public class DemoApplication implements CommandLineRunner{
 
 	@Autowired
     private MyAppUserRepository myAppUserRepository; // Inject the repository
@@ -16,14 +18,16 @@ public class DemoApplication {
     private PasswordValidator passwordValidator; 
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(DemoApplication.class, args);
-		DemoApplication app = new DemoApplication();
+	}
+
+	@Override
+    public void run(String... args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Welcome to the application!");
 
 		       // Create the user
-			   MyAppUser newUser = app.registerUser(scanner);
+			   MyAppUser newUser = registerUser(scanner);
 
          // Δημιουργία και έλεγχος του UserProfile
         UserProfile userProfile = createUserProfile(scanner);
