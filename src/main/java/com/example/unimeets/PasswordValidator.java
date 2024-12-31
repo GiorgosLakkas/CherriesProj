@@ -2,7 +2,9 @@ package com.example.unimeets;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.Scanner;
+import org.springframework.stereotype.Component; 
 
+@Component
 public class PasswordValidator {
 
     private final PasswordEncoder passwordEncoder;

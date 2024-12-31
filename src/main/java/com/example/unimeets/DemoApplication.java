@@ -2,21 +2,30 @@ package com.example.unimeets;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Scanner;
 import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication {
 
+	@Autowired
+    private MyAppUserRepository myAppUserRepository; // Inject the repository
+
+	@Autowired
+    private PasswordValidator passwordValidator; 
+
 	public static void main(String[] args) {
+
 		SpringApplication.run(DemoApplication.class, args);
+		DemoApplication app = new DemoApplication();
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("Welcome to the application!");
 
-		//Δημιουργία και έλεγχος του MyAppUser (registration)
-		// ή login
+		       // Create the user
+			   MyAppUser newUser = app.registerUser(scanner);
 
-        // Δημιουργία και έλεγχος του UserProfile
-        System.out.println("Welcome to the application!");
+         // Δημιουργία και έλεγχος του UserProfile
         UserProfile userProfile = createUserProfile(scanner);
 
         // Επιλογή ενδιαφερόντων
@@ -30,7 +39,7 @@ public class DemoApplication {
         List<String> selectedVolunteerActivities = UserSelection.getMultipleUserSelections(scanner, volunteerActivities, 
                 "Please select your volunteering activities (optional)", 3);
         userProfile.setVolunteerActivities(selectedVolunteerActivities, volunteerActivities);
-
+		
         // Εμφάνιση αποτελεσμάτων
         System.out.println("\n--- User Profile ---");
         System.out.println("Age: " + userProfile.getAge());
@@ -57,6 +66,22 @@ public class DemoApplication {
             System.out.println("\nNo assignment created.");
         }
 	}
+    private MyAppUser registerUser( Scanner scanner) {
+			//Δημιουργία και έλεγχος του MyAppUser (registration)
+		// ή login
+		System.out.println("Enter name:");
+		String name = scanner.nextLine();
+		System.out.println("Enter Username:");
+		String username = scanner.nextLine();
+		System.out.println("Enter Email:");
+		String email = scanner.nextLine();
+		System.out.println("Enter Password:");
+		String password = scanner.nextLine();
+		MyAppUser newUser = new MyAppUser(name, username, email, password);
+	    password = passwordValidator.validatePassword();
+		return new MyAppUser(name, username, email, password);
+	}
+
 	private static UserProfile createUserProfile(Scanner scanner) {
         UserProfile userProfile = new UserProfile();
 
