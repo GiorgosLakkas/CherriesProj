@@ -46,12 +46,12 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(httpForm -> {
-                    httpForm.loginPage("/loginuni.html").permitAll();
-                    httpForm.defaultSuccessUrl("/index");
+                    httpForm.loginPage("/login.html").permitAll();
+                    httpForm.defaultSuccessUrl("/home");
                 })
 
                 .authorizeHttpRequests(registry -> {
-                    registry.requestMatchers("/loginuni.html", "/css/**", "/js/**").permitAll();
+                    registry.requestMatchers("/signup.html", "/css/**", "/js/**").permitAll();
                     registry.anyRequest().authenticated();
                 })
                 .build();

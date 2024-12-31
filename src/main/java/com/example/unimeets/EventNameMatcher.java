@@ -1,3 +1,5 @@
+package com.example.unimeets;
+
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.commons.text.similarity.JaroWinklerSimilarity;
 
