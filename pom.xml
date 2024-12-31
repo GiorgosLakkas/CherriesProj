@@ -33,14 +33,26 @@
 	</dependencyManagement>
 
     
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.1</version>
-			</plugin>
-		</plugins>
-	</build>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>com.example.unimeets.DemoApplication</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+          <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 
     <dependencies>
 
@@ -122,16 +134,4 @@
            <version>12.2.0.jre8</version> <!-- Use the latest stable version -->
         </dependency>
     </dependencies>
-
-
- 
-
-
-
-
-
-
-
-
-
 </project>

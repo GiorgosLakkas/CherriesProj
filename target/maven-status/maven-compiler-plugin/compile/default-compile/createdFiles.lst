@@ -6,14 +6,16 @@ com/example/unimeets/SimpleMeetingSearch.class
 com/example/unimeets/Assignment.class
 com/example/unimeets/MatchAlgorithm.class
 com/example/unimeets/UserSelection.class
+com/example/unimeets/EventNameMatcher.class
 com/example/unimeets/Event.class
 com/example/unimeets/ContentController.class
 com/example/unimeets/UserProfile.class
 com/example/unimeets/MyAppUser.class
+com/example/unimeets/PasswordValidator.class
+com/example/unimeets/WebSecurityConfig.class
 com/example/unimeets/UserFilter.class
 com/example/unimeets/ValidatorUserProfile.class
 com/example/unimeets/FilterCriteria.class
-EventNameMatcher.class
 com/example/unimeets/Notification.class
 com/example/unimeets/FilterManager.class
 com/example/unimeets/NotificationService.class

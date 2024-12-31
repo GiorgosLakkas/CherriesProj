@@ -12,6 +12,9 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 		Scanner scanner = new Scanner(System.in);
 
+		//Δημιουργία και έλεγχος του MyAppUser (registration)
+		// ή login
+
         // Δημιουργία και έλεγχος του UserProfile
         System.out.println("Welcome to the application!");
         UserProfile userProfile = createUserProfile(scanner);
@@ -39,6 +42,8 @@ public class DemoApplication {
         System.out.println("Volunteer Activities: " + userProfile.getVolunteerActivities());
 
         System.out.println("\nThank you for using the application!");
+
+		// επιλογή σκοπού
 
         System.out.println("\nWould you like to create an assignment? (yes/no):");
         String createAssignment = scanner.nextLine().trim().toLowerCase();
