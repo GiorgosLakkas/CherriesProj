@@ -83,7 +83,13 @@ public class DemoApplication implements CommandLineRunner{
 		String password = scanner.nextLine();
 		MyAppUser newUser = new MyAppUser(name, username, email, password);
 	    password = passwordValidator.validatePassword();
-		return new MyAppUser(name, username, email, password);
+        newUser.setPassword(password); // Set the validated password
+
+        // Save the user to the database
+        myAppUserRepository.save(newUser); // Save the new user
+
+        return newUser; // Return the saved user
+
 	}
 
 	private static UserProfile createUserProfile(Scanner scanner) {

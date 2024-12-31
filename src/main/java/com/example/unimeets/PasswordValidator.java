@@ -18,7 +18,6 @@ public class PasswordValidator {
         String password = null;
 
 
-        System.out.print("Enter your password: ");
         while ( password == null ||!hasEnough(password)) {
             password = s.nextLine();
             if (!hasEnough(password)) {
