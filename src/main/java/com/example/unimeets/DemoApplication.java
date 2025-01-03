@@ -33,21 +33,8 @@ public class DemoApplication implements CommandLineRunner{
 
 		MyAppUser newUser = registerUser(scanner);
 
-         // Δημιουργία και έλεγχος του UserProfile
-        UserProfile userProfile = createUserProfile(scanner, newUser);
-        userProfileRepository.save(userProfile);
-
-        // Επιλογή ενδιαφερόντων
-        List<String> interests = UserSelection.getInterestsOptions();
-        List<String> selectedInterests = UserSelection.getMultipleUserSelections(scanner, interests, 
-                "Please select your interests", 5);
-        userProfile.setInterests(selectedInterests, interests);
-
-        // Επιλογή εθελοντικών δράσεων
-        List<String> volunteerActivities = UserSelection.getVolunteerActivitiesOptions();
-        List<String> selectedVolunteerActivities = UserSelection.getMultipleUserSelections(scanner, volunteerActivities, 
-                "Please select your volunteering activities (optional)", 3);
-        userProfile.setVolunteerActivities(selectedVolunteerActivities, volunteerActivities);
+         // Δημιουργία και έλεγχος του UserProfile        
+         UserProfile userProfile = createUserProfile(scanner, newUser, userProfileRepository);
 		
         // Εμφάνιση αποτελεσμάτων
         System.out.println("\n--- User Profile ---");
@@ -95,7 +82,7 @@ public class DemoApplication implements CommandLineRunner{
 
 	}
 
-	private static UserProfile createUserProfile(Scanner scanner, MyAppUser newUser) {
+    private static UserProfile createUserProfile(Scanner scanner, MyAppUser newUser, UserProfileRepository userProfileRepository) {
         UserProfile userProfile = new UserProfile();
 
         while (true) {
@@ -121,22 +108,32 @@ public class DemoApplication implements CommandLineRunner{
                 // Εισαγωγή έτους σπουδών
                 List<String> yearOptions = UserSelection.getYearOptions();
                 userProfile.setYearOfStudy(UserSelection.getUserSelection(scanner, yearOptions, "Please select your year of study"));
+
+            
+                List<String> interests = UserSelection.getInterestsOptions();
+                 List<String> selectedInterests = UserSelection.getMultipleUserSelections(scanner, interests, 
+                "Please select your interests", 5);
+                 userProfile.setInterests(selectedInterests, interests);
+
+                List<String> volunteerActivities = UserSelection.getVolunteerActivitiesOptions();
+                List<String> selectedVolunteerActivities = UserSelection.getMultipleUserSelections(scanner, volunteerActivities, 
+                "Please select your volunteering activities (optional)", 3);
+                userProfile.setVolunteerActivities(selectedVolunteerActivities, volunteerActivities);
                 
                 userProfile.setMyAppUser(newUser);
-
                 // Επικύρωση προφίλ
                 if (!ValidatorUserProfile.validate(userProfile)) {
                     System.out.println("Please complete the required fields correctly.");
                     continue;
                 }
 
-                // Αν το προφίλ είναι έγκυρο, βγες από το loop
-                break;
+                userProfileRepository.save(userProfile);
+                return userProfile;
+
             } catch (Exception e) {
                 System.out.println("An error occurred: " + e.getMessage());
                 System.out.println("Please try again.");
             }
-        }
-        return userProfile;
-    }
+        }    
+    } 
 }

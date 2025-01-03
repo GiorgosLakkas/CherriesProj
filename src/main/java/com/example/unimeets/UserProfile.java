@@ -3,6 +3,9 @@ package com.example.unimeets;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
 
 @Entity
 @Table(name = "UserProfile")
@@ -26,15 +29,13 @@ public class UserProfile {
     @Column(name = "year_of_study", nullable = false)
     private String yearOfStudy;
 
-    @ElementCollection
-    @CollectionTable(name = "InterestsMatrix", joinColumns = @JoinColumn(name = "user_profile_id"))
-    @Column(name = "value")
-    private List<int[]> interestsMatrix = new ArrayList<>();
+    @Lob
+    @Column(name = "interests_matrix")
+    private byte[] interestsMatrix;  // Store as binary data
 
-    @ElementCollection
-    @CollectionTable(name = "VolunteerMatrix", joinColumns = @JoinColumn(name = "user_profile_id"))
-    @Column(name = "value")
-    private List<int[]> volunteerMatrix = new ArrayList<>();
+    @Lob
+    @Column(name = "volunteer_matrix")
+    private byte[] volunteerMatrix;  // Store as binary data
 
     @ElementCollection
     private List<String> interests = new ArrayList<>();
@@ -103,7 +104,8 @@ public class UserProfile {
 
     public void setInterests(List<String> interests, List<String> allInterests) {
         this.interests = interests;
-        this.interestsMatrix = generateBinaryMatrix(interests, allInterests);    }
+        this.interestsMatrix = generateBinaryMatrix(interests, allInterests);  // Generate binary matrix and set
+    }
 
     public List<String> getInterests() {
         return this.interests;
@@ -111,27 +113,38 @@ public class UserProfile {
 
     public void setVolunteerActivities(List<String> volunteerActivities, List<String> allActivities) {
         this.volunteerActivities = volunteerActivities;
-        this.volunteerMatrix = generateBinaryMatrix(volunteerActivities, allActivities);
+        this.volunteerMatrix = generateBinaryMatrix(volunteerActivities, allActivities);  // Generate binary matrix and set
     }
 
     public List<String> getVolunteerActivities() {
         return this.volunteerActivities;
     }
-    public List<int[]> getInterestsMatrix() {
+
+    public byte[] getInterestsMatrix() {
         return interestsMatrix;
     }
 
-    public List<int[]> getVolunteerMatrix() {
+    public byte[] getVolunteerMatrix() {
         return volunteerMatrix;
     }
-     // Δημιουργία δυαδικού πίνακα
-    private List<int[]> generateBinaryMatrix(List<String> selectedItems, List<String> allItems) {
-        List<int[]> matrix = new ArrayList<>();
+
+    private byte[] generateBinaryMatrix(List<String> selectedItems, List<String> allItems) {
+        List<Integer> matrixList = new ArrayList<>();
         for (String item : allItems) {
-            int[] row = new int[1]; // You might want to use a more complex structure depending on your needs.
-            row[0] = selectedItems.contains(item) ? 1 : 0;
-            matrix.add(row);
+            matrixList.add(selectedItems.contains(item) ? 1 : 0);
         }
-        return matrix;
+
+        // Convert List<Integer> to byte[] (this is a simple way, consider your data structure)
+        return serializeMatrix(matrixList);
+    }
+
+    private byte[] serializeMatrix(List<Integer> matrixList) {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
+             ObjectOutputStream out = new ObjectOutputStream(bos)) {
+            out.writeObject(matrixList);
+            return bos.toByteArray();  // Return byte array
+        } catch (IOException e) {
+            throw new RuntimeException("Error serializing matrix", e);
+        }
     }
 }
