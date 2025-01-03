@@ -1,17 +1,60 @@
 package com.example.unimeets;
+
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+@Entity
+@Table(name = "UserProfile")
 public class UserProfile {
-    private int age = -1;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private int age;
+
+    @Column(nullable = false)
     private String gender;
+
+    @Column(nullable = false)
     private String university;
+
+    @Column(nullable = false)
     private String department;
+
+    @Column(name = "year_of_study", nullable = false)
     private String yearOfStudy;
+
+    @ElementCollection
+    @CollectionTable(name = "InterestsMatrix", joinColumns = @JoinColumn(name = "user_profile_id"))
+    @Column(name = "value")
+    private List<int[]> interestsMatrix = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "VolunteerMatrix", joinColumns = @JoinColumn(name = "user_profile_id"))
+    @Column(name = "value")
+    private List<int[]> volunteerMatrix = new ArrayList<>();
+
+    @ElementCollection
     private List<String> interests = new ArrayList<>();
+
+    @ElementCollection
     private List<String> volunteerActivities = new ArrayList<>();
 
-    private int[] interestsMatrix = new int[0]; // Αρχικοποίηση με κενό πίνακα
-    private int[] volunteerMatrix = new int[0]; // Αρχικοποίηση με κενό πίνακα
+    @ManyToOne
+    @JoinColumn(name = "myappuser_id")
+    private MyAppUser myAppUser;
+
+    // Other methods
+
+    public void setMyAppUser(MyAppUser myAppUser) {
+        this.myAppUser = myAppUser;
+    }
+
+    public MyAppUser getMyAppUser() {
+        return myAppUser;
+    }
 
     public UserProfile() {}
 
@@ -74,23 +117,21 @@ public class UserProfile {
     public List<String> getVolunteerActivities() {
         return this.volunteerActivities;
     }
-    public int[] getInterestsMatrix() {
+    public List<int[]> getInterestsMatrix() {
         return interestsMatrix;
     }
 
-    public int[] getVolunteerMatrix() {
+    public List<int[]> getVolunteerMatrix() {
         return volunteerMatrix;
     }
      // Δημιουργία δυαδικού πίνακα
-     private int[] generateBinaryMatrix(List<String> selected, List<String> allOptions) {
-        int[] binaryMatrix = new int[allOptions.size()];
-        if (selected == null || selected.isEmpty()) {
-            // Αν η λίστα είναι null ή κενή, γεμίζουμε με 0
-            return binaryMatrix; // Όλες οι θέσεις παραμένουν 0
+    private List<int[]> generateBinaryMatrix(List<String> selectedItems, List<String> allItems) {
+        List<int[]> matrix = new ArrayList<>();
+        for (String item : allItems) {
+            int[] row = new int[1]; // You might want to use a more complex structure depending on your needs.
+            row[0] = selectedItems.contains(item) ? 1 : 0;
+            matrix.add(row);
         }
-        for (int i = 0; i < allOptions.size(); i++) {
-            binaryMatrix[i] = selected.contains(allOptions.get(i)) ? 1 : 0;
-        }
-        return binaryMatrix;
+        return matrix;
     }
 }

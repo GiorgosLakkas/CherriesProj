@@ -5,11 +5,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Scanner;
 import java.util.List;
+import java.util.ArrayList;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
+
+    @Autowired
+    private UserProfileRepository userProfileRepository;
 
 	@Autowired
     private MyAppUserRepository myAppUserRepository; // Inject the repository
@@ -26,11 +31,11 @@ public class DemoApplication implements CommandLineRunner{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Welcome to the application!");
 
-		       // Create the user
-			   MyAppUser newUser = registerUser(scanner);
+		MyAppUser newUser = registerUser(scanner);
 
          // Δημιουργία και έλεγχος του UserProfile
-        UserProfile userProfile = createUserProfile(scanner);
+        UserProfile userProfile = createUserProfile(scanner, newUser);
+        userProfileRepository.save(userProfile);
 
         // Επιλογή ενδιαφερόντων
         List<String> interests = UserSelection.getInterestsOptions();
@@ -81,17 +86,16 @@ public class DemoApplication implements CommandLineRunner{
 		String email = scanner.nextLine();
 		System.out.println("Enter Password:");
 		String password = passwordValidator.validatePassword();
-		MyAppUser newUser = new MyAppUser(name, username, email, password);
+        MyAppUser newUser = new MyAppUser(name, username, email, password);
         newUser.setPassword(password); // Set the validated password
 
         // Save the user to the database
         myAppUserRepository.save(newUser); // Save the new user
-
         return newUser; // Return the saved user
 
 	}
 
-	private static UserProfile createUserProfile(Scanner scanner) {
+	private static UserProfile createUserProfile(Scanner scanner, MyAppUser newUser) {
         UserProfile userProfile = new UserProfile();
 
         while (true) {
@@ -100,7 +104,7 @@ public class DemoApplication implements CommandLineRunner{
 
                 // Εισαγωγή ηλικίας
                 int age = UserSelection.getValidAge(scanner);
-            userProfile.setAge(age);
+                userProfile.setAge(age);
 
                 // Εισαγωγή φύλου
                 List<String> genderOptions = UserSelection.getGenderOptions();
@@ -117,6 +121,8 @@ public class DemoApplication implements CommandLineRunner{
                 // Εισαγωγή έτους σπουδών
                 List<String> yearOptions = UserSelection.getYearOptions();
                 userProfile.setYearOfStudy(UserSelection.getUserSelection(scanner, yearOptions, "Please select your year of study"));
+                
+                userProfile.setMyAppUser(newUser);
 
                 // Επικύρωση προφίλ
                 if (!ValidatorUserProfile.validate(userProfile)) {

@@ -11,6 +11,7 @@ com/example/unimeets/Event.class
 com/example/unimeets/ContentController.class
 com/example/unimeets/UserProfile.class
 com/example/unimeets/MyAppUser.class
+com/example/unimeets/UserProfileRepository.class
 com/example/unimeets/PasswordValidator.class
 com/example/unimeets/WebSecurityConfig.class
 com/example/unimeets/UserFilter.class
