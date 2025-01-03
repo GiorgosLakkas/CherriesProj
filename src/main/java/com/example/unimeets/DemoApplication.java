@@ -5,19 +5,22 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 
 import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 
     @Autowired
+    private AssignmentRepository assignmentRepository;
+
+    @Autowired
     private UserProfileRepository userProfileRepository;
 
 	@Autowired
-    private MyAppUserRepository myAppUserRepository; // Inject the repository
+    private MyAppUserRepository myAppUserRepository;
 
 	@Autowired
     private PasswordValidator passwordValidator; 
@@ -48,20 +51,16 @@ public class DemoApplication implements CommandLineRunner{
 
         System.out.println("\nThank you for using the application!");
 
-		// επιλογή σκοπού
-
+        // επιλογή σκοπού
         System.out.println("\nWould you like to create an assignment? (yes/no):");
-        String createAssignment = scanner.nextLine().trim().toLowerCase();
+        String createAssignmentChoice = scanner.nextLine().trim().toLowerCase();
 
-        if (createAssignment.equals("yes")) {
-            // Δημιουργία Assignment
+        if ("yes".equals(createAssignmentChoice)) {
             Assignment assignment = Assignment.createAssignment();
-            System.out.println("\n--- Assignment ---");
-            System.out.println(assignment);
-        } else {
-            System.out.println("\nNo assignment created.");
+            assignmentRepository.save(assignment); // Save the assignment to the database
+            System.out.println("Assignment created and saved: " + assignment);
         }
-	}
+    }
     private MyAppUser registerUser( Scanner scanner) {
 			//Δημιουργία και έλεγχος του MyAppUser (registration)
 		// ή login
@@ -134,6 +133,6 @@ public class DemoApplication implements CommandLineRunner{
                 System.out.println("An error occurred: " + e.getMessage());
                 System.out.println("Please try again.");
             }
-        }    
+        }
     } 
 }

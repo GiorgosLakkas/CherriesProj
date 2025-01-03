@@ -1,14 +1,32 @@
 package com.example.unimeets;
 
-import java.util.*;
+import jakarta.persistence.*;
+import java.util.List;
+import java.util.Scanner;
+
+@Entity
 public class Assignment {
-    private String department;  // π.χ., ΔΕΤ, ΟΔΕ
-    private int semester;       // π.χ., 1ο, 2ο κτλ.
-    private String course;      // π.χ., Προγραμματισμός ΙΙ
-    private int requiredMembers; // Αριθμός ατόμων που χρειάζονται
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;  // Add this field for the primary key
+    
+    @Column(name = "department", nullable = false)
+    private String department;
+    
+    @Column(name = "semester", nullable = false)
+    private int semester;
+    
+    @Column(name = "course", nullable = false)
+    private String course;
+    
+    @Column(name = "required_members", nullable = false)
+    private int requiredMembers;
 
     // Λίστες επιλογών
+    @Transient
     private static final List<String> DEPARTMENTS = List.of("International and European Economic Studies", "Economics", "Management Science and Technology", "Businesss Administration", "Accounting and Finance", "Marketing and Communication", "Informatics", "Statistics");
+    @Transient
     private static final List<Integer> SEMESTERS = List.of(1, 2, 3, 4, 5, 6, 7, 8);
 
     // Κατασκευαστής
@@ -130,15 +148,5 @@ public class Assignment {
    
             return new Assignment(department, semester, course, requiredMembers);
         }
-    }
-    
-    @Override
-    public String toString() {
-        return "Assignment{" +
-                "department='" + department + '\'' +
-                ", semester=" + semester +
-                ", course='" + course + '\'' +
-                ", requiredMembers=" + requiredMembers +
-                '}';
     }
 }
