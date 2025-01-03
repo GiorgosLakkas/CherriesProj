@@ -80,9 +80,8 @@ public class DemoApplication implements CommandLineRunner{
 		System.out.println("Enter Email:");
 		String email = scanner.nextLine();
 		System.out.println("Enter Password:");
-		String password = scanner.nextLine();
+		String password = passwordValidator.validatePassword();
 		MyAppUser newUser = new MyAppUser(name, username, email, password);
-	    password = passwordValidator.validatePassword();
         newUser.setPassword(password); // Set the validated password
 
         // Save the user to the database

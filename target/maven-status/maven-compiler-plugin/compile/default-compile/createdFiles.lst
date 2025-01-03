@@ -21,4 +21,5 @@ com/example/unimeets/FilterManager.class
 com/example/unimeets/NotificationService.class
 com/example/unimeets/MatchAlgoEvent.class
 com/example/unimeets/Valid.class
+com/example/unimeets/RegistrationController.class
 com/example/unimeets/MyAppUserRepository.class

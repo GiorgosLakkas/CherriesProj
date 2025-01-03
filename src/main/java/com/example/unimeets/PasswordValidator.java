@@ -12,41 +12,31 @@ public class PasswordValidator {
     public PasswordValidator(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
-
+    
     public String validatePassword () {
-        Scanner s = new Scanner(System.in);
-        String password = null;
+        Scanner scanner = new Scanner(System.in);
+        String password;
 
-
-        while ( password == null ||!hasEnough(password)) {
-            password = s.nextLine();
-            if (!hasEnough(password)) {
-                System.out.println("Your password should have 7 or more characters.");
-                System.out.print("Please reenter your password: ");
+        while (true) {
+            password = scanner.nextLine().trim();
+            if(!hasEnough(password)){
+                System.out.print("Your password should have at least 7 characters");
+                continue;
             }
-        }
-        String confirmedPassword = confirmPassword(s, password);
+   
+            System.out.println("Confirm your password: ");
+             String confirmedPassword = scanner.nextLine().trim();
 
-        if (!password.trim().equals(confirmedPassword.trim())) {
-            throw new IllegalArgumentException("Passwords do not match.");
+            if (!password.equals(confirmedPassword)) {
+            System.out.println("Passwords do not match.Please reenter your password:");
+            continue;
+            }
+            break;
         }
         return passwordEncoder.encode(password);
     }
-    public static String confirmPassword(Scanner s, String password) {
-        String confirmedPassword;
-        while (true) {
-            System.out.print("Confirm your password: ");
-            confirmedPassword = s.nextLine();
 
-            if (!password.trim().equals(confirmedPassword.trim())) {
-                System.out.println("Passwords do not match. Please try again.");
-            } else {
-                return confirmedPassword;
-            }
-        }
-    }
     public static boolean hasEnough(String password) {
         return password.length() >= 7;
     }
 }
-
