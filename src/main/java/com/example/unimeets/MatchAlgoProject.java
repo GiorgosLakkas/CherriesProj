@@ -1,4 +1,5 @@
 package com.example.unimeets;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatchAlgoProject{
-
-    
-
-    
         // Method to find matching users
         public List<String> findMatches(String userString, double threshold) {
             List<String> matchingUsers = new ArrayList<>();
@@ -20,29 +17,30 @@ public class MatchAlgoProject{
     
             try {
                 // Connect to the database
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/yourDatabase", "username", "password");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Cherries", "root", "fairyberry");
     
                 // Query to fetch all users' first and last names with their matching strings
-                String query = "SELECT first_name, last_name, matching_string FROM users_table";
+                String query = "SELECT name, matching_string FROM my_app_user";
                 statement = connection.prepareStatement(query);
                 resultSet = statement.executeQuery();
+
+                EventNameMatcher matcher = new EventNameMatcher();
     
                 double highestPercentage = 0;
                 String bestMatch = "";
     
                 // Iterate through the result set
                 while (resultSet.next()) {
-                    String firstName = resultSet.getString("first_name");
-                    String lastName = resultSet.getString("last_name");
+                    String name = resultSet.getString("name");
                     String matchingString = resultSet.getString("matching_string");
     
                     // Compare strings using EventNameMatcher
-                    double percentage = EventNameMatcher.getPercentage(userString, matchingString);
+                    double percentage = matcher.getPercentage(userString, matchingString);
     
                     if (percentage >= threshold) {
                         if (percentage > highestPercentage) {
                             highestPercentage = percentage;
-                            bestMatch = firstName + " " + lastName;
+                            bestMatch = name;
                         }
                     }
                 }
@@ -62,9 +60,6 @@ public class MatchAlgoProject{
                     e.printStackTrace();
                 }
             }
-    
             return matchingUsers;
         }
     }
-
-    

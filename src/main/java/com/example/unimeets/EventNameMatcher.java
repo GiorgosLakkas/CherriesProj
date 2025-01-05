@@ -4,10 +4,8 @@ import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.commons.text.similarity.JaroWinklerSimilarity;
 
 public class EventNameMatcher {
-    public static void main(String[] args) {
-        String name1 = "Annual Tech Conference 2024";
-        String name2 = "annual tech conference";
-
+    
+        public double getPercentage(String name1, String name2) {
         // Normalize the strings
         name1 = name1.toLowerCase().trim();
         name2 = name2.toLowerCase().trim();
@@ -28,5 +26,7 @@ public class EventNameMatcher {
         System.out.println("Levenshtein Similarity: " + levenshteinSimilarity + "%");
         System.out.println("Jaro-Winkler Similarity: " + jaroWinklerSimilarity + "%");
         System.out.println("Final Similarity: " + finalSimilarity + "%");
+
+        return finalSimilarity;
     }
 }

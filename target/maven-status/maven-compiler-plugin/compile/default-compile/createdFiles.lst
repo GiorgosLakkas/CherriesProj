@@ -4,6 +4,7 @@ com/example/unimeets/AssignmentRepository.class
 com/example/unimeets/Assignment.class
 com/example/unimeets/EventNameMatcher.class
 com/example/unimeets/ContentController.class
+com/example/unimeets/MatchAlgoProject.class
 com/example/unimeets/MyAppUser.class
 com/example/unimeets/WebSecurityConfig.class
 com/example/unimeets/ValidatorUserProfile.class
