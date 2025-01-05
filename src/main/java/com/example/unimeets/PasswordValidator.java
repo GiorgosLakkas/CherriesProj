@@ -1,17 +1,10 @@
 package com.example.unimeets; 
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.Scanner;
 import org.springframework.stereotype.Component; 
 
 @Component
 public class PasswordValidator {
-
-    private final PasswordEncoder passwordEncoder;
-
-    public PasswordValidator(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
     
     public String validatePassword () {
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +26,7 @@ public class PasswordValidator {
             }
             break;
         }
-        return passwordEncoder.encode(password);
+        return password;
     }
 
     public static boolean hasEnough(String password) {

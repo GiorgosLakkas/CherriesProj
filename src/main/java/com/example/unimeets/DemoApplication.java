@@ -49,8 +49,6 @@ public class DemoApplication implements CommandLineRunner{
         System.out.println("Interests: " + userProfile.getInterests());
         System.out.println("Volunteer Activities: " + userProfile.getVolunteerActivities());
 
-        System.out.println("\nThank you for using the application!");
-
         // επιλογή σκοπού
         System.out.println("\nWould you like to create an assignment? (yes/no):");
         String createAssignmentChoice = scanner.nextLine().trim().toLowerCase();
@@ -59,6 +57,8 @@ public class DemoApplication implements CommandLineRunner{
             Assignment assignment = Assignment.createAssignment();
             assignmentRepository.save(assignment); // Save the assignment to the database
             System.out.println("Assignment created and saved: " + assignment);
+
+            System.out.println("\nThank you for using the application!");
         }
     }
     private MyAppUser registerUser( Scanner scanner) {
