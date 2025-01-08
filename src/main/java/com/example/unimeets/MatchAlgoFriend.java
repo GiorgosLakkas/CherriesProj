@@ -29,6 +29,8 @@ public class MatchAlgoFriend {
         for (int i = 0; i < interests.size(); i++) {
             User1[4 + i] = interests.get(i);
         }
+    }    
+    public List<FinalProduct> getUsersAbove95Match() {
 
         List<UserProfile> allUsers = userProfileRepository.findAll();
         List<String> highMatchUsers = new ArrayList<>();
