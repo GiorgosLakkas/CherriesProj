@@ -20,6 +20,7 @@ com/example/unimeets/MyAppUserService.class
 com/example/unimeets/SimpleMeetingSearch.class
 com/example/unimeets/MatchAlgorithm.class
 com/example/unimeets/UserSelection.class
+com/example/unimeets/AssignementSearch.class
 com/example/unimeets/Event.class
 com/example/unimeets/UserProfile.class
 com/example/unimeets/UserProfileRepository.class

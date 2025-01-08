@@ -37,10 +37,10 @@ public class UserProfile {
     @Column(name = "volunteer_matrix")
     private byte[] volunteerMatrix;  // Store as binary data
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> interests = new ArrayList<>();
-
-    @ElementCollection
+    
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> volunteerActivities = new ArrayList<>();
 
     @ManyToOne
@@ -148,3 +148,4 @@ public class UserProfile {
         }
     }
 }
+

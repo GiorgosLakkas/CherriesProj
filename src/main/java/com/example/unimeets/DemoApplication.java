@@ -1,20 +1,25 @@
 package com.example.unimeets;
 
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.Scanner;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 
+    
+    private final MatchAlgoFriend matchAlgoFriend;
+    private final MatchAlgoProject matchAlgoProject;
+    private final MatchAlgoEvent matchAlgoEvent;
     @Autowired
-    private MatchAlgoFriend matchAlgoFriend;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     private AssignmentRepository assignmentRepository;
@@ -22,26 +27,33 @@ public class DemoApplication implements CommandLineRunner{
     @Autowired
     private UserProfileRepository userProfileRepository;
 
-	@Autowired
+    @Autowired
     private MyAppUserRepository myAppUserRepository;
 
-	@Autowired
-    private PasswordValidator passwordValidator; 
+    @Autowired
+    private PasswordValidator passwordValidator;
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    @Autowired
+    public DemoApplication(MatchAlgoFriend matchAlgoFriend, MatchAlgoProject matchAlgoProject, MatchAlgoEvent matchAlgoEvent) {
+        this.matchAlgoFriend = matchAlgoFriend;
+        this.matchAlgoProject = matchAlgoProject;
+        this.matchAlgoEvent = matchAlgoEvent;
+    }
 
-	@Override
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @Override
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
-		System.out.println("Welcome to the application!");
+        System.out.println("Welcome to the application!");
 
-		MyAppUser newUser = registerUser(scanner);
+        MyAppUser newUser = registerUser(scanner);
 
          // Δημιουργία και έλεγχος του UserProfile        
          UserProfile userProfile = createUserProfile(scanner, newUser, userProfileRepository);
-		
+        
         // Εμφάνιση αποτελεσμάτων
         System.out.println("\n--- User Profile ---");
         System.out.println("Age: " + userProfile.getAge());
@@ -72,8 +84,7 @@ public class DemoApplication implements CommandLineRunner{
         System.out.println("You selected choice: " + choice);
         switch (choice) {
             case 1:
-                MatchAlgoFriend friend = new MatchAlgoFriend (userProfileRepository);
-                List<String> matches = friend.getUsersAbove95Match(userProfile);
+                List<String> matches = matchAlgoFriend.getUsersAbove95Match(userProfile);
                 if (matches.isEmpty()) {
                     System.out.println("No matches found with 95% or higher.");
                 } else {
@@ -82,40 +93,44 @@ public class DemoApplication implements CommandLineRunner{
                 }
                 break;
             case 2:
-                MatchAlgoEvent event = new MatchAlgoEvent();
+                // Make sure the constructor of MatchAlgoEvent works with JdbcTemplate
+                MatchAlgoEvent event = new MatchAlgoEvent(jdbcTemplate); 
                 String eventString = scanner.nextLine();
                 List<String> matches2 = event.findEventAttendees(eventString);
                 break;
             case 3:
-                MatchAlgoProject project = new MatchAlgoProject();
-                System.out.println("Enter the project ID:");
-                String projectId = scanner.nextLine(); // Get the project ID from the user
-                
+                // Pass JdbcTemplate to MatchAlgoProject constructor
+                MatchAlgoProject project = new MatchAlgoProject(jdbcTemplate);  
+                System.out.println("Enter the user string to match against:");
+                String userString = scanner.nextLine(); // Get the user string to match
+            
                 System.out.println("Enter the match threshold (e.g., 0.95):");
                 double threshold = scanner.nextDouble(); // Get the threshold from the user
-                
-                List<String> matches3 = project.findMatches(projectId, threshold);
-                
+            
+                // Find the matching users
+                List<String> matches3 = project.findMatches(userString, threshold);
+            
                 if (matches3.isEmpty()) {
-                    System.out.println("No matches found for project ID: " + projectId + " with threshold: " + threshold);
+                    System.out.println("No matches found for the provided string with threshold: " + threshold);
                 } else {
-                    System.out.println("Matches for project ID " + projectId + ":");
-                    matches3.forEach(System.out::println);
+                    System.out.println("Matches:");
+                    matches3.forEach(System.out::println); // Display the matched user names
                 }
-                break;
+            break;
         }
     }
+
     private MyAppUser registerUser( Scanner scanner) {
-			//Δημιουργία και έλεγχος του MyAppUser (registration)
-		// ή login
-		System.out.println("Enter name:");
-		String name = scanner.nextLine();
-		System.out.println("Enter Username:");
-		String username = scanner.nextLine();
-		System.out.println("Enter Email:");
-		String email = scanner.nextLine();
-		System.out.println("Enter Password:");
-		String password = passwordValidator.validatePassword();
+            //Δημιουργία και έλεγχος του MyAppUser (registration)
+        // ή login
+        System.out.println("Enter name:");
+        String name = scanner.nextLine();
+        System.out.println("Enter Username:");
+        String username = scanner.nextLine();
+        System.out.println("Enter Email:");
+        String email = scanner.nextLine();
+        System.out.println("Enter Password:");
+        String password = passwordValidator.validatePassword();
         MyAppUser newUser = new MyAppUser(name, username, email, password);
         newUser.setPassword(password); // Set the validated password
 
@@ -123,7 +138,7 @@ public class DemoApplication implements CommandLineRunner{
         myAppUserRepository.save(newUser); // Save the new user
         return newUser; // Return the saved user
 
-	}
+    }
 
     private static UserProfile createUserProfile(Scanner scanner, MyAppUser newUser, UserProfileRepository userProfileRepository) {
         UserProfile userProfile = new UserProfile();
@@ -154,9 +169,9 @@ public class DemoApplication implements CommandLineRunner{
 
             
                 List<String> interests = UserSelection.getInterestsOptions();
-                 List<String> selectedInterests = UserSelection.getMultipleUserSelections(scanner, interests, 
+                List<String> selectedInterests = UserSelection.getMultipleUserSelections(scanner, interests, 
                 "Please select your interests", 5);
-                 userProfile.setInterests(selectedInterests, interests);
+                userProfile.setInterests(selectedInterests, interests);
 
                 List<String> volunteerActivities = UserSelection.getVolunteerActivitiesOptions();
                 List<String> selectedVolunteerActivities = UserSelection.getMultipleUserSelections(scanner, volunteerActivities, 
@@ -195,3 +210,4 @@ public class DemoApplication implements CommandLineRunner{
         }
     }
 }
+

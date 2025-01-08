@@ -6,6 +6,11 @@ import org.apache.commons.text.similarity.JaroWinklerSimilarity;
 public class EventNameMatcher {
     
         public double getPercentage(String name1, String name2) {
+
+            if (name1 == null || name2 == null) {
+                System.out.println("One or both names are null. Returning similarity as 0.");
+                return 0.0;  // Return 0 similarity if any name is null
+            }
         // Normalize the strings
         name1 = name1.toLowerCase().trim();
         name2 = name2.toLowerCase().trim();
@@ -30,3 +35,4 @@ public class EventNameMatcher {
         return finalSimilarity;
     }
 }
+

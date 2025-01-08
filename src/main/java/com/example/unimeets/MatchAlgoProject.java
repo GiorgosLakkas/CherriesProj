@@ -1,65 +1,57 @@
 package com.example.unimeets;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchAlgoProject{
-        // Method to find matching users
-        public List<String> findMatches(String userString, double threshold) {
-            List<String> matchingUsers = new ArrayList<>();
-            Connection connection = null;
-            PreparedStatement statement = null;
-            ResultSet resultSet = null;
-    
-            try {
-                // Connect to the database
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Cherries", "root", "fairyberry");
-    
-                // Query to fetch all users' first and last names with their matching strings
-                String query = "SELECT name, matching_string FROM my_app_user";
-                statement = connection.prepareStatement(query);
-                resultSet = statement.executeQuery();
+@Component
+public class MatchAlgoProject {
 
-                EventNameMatcher matcher = new EventNameMatcher();
-    
-                double highestPercentage = 0;
-                String bestMatch = "";
-    
-                // Iterate through the result set
-                while (resultSet.next()) {
-                    String name = resultSet.getString("name");
-                    String matchingString = resultSet.getString("matching_string");
-    
-                    // Compare strings using EventNameMatcher
-                    double percentage = matcher.getPercentage(userString, matchingString);
-    
-                    if (percentage >= threshold) {
-                        if (percentage > highestPercentage) {
-                            highestPercentage = percentage;
-                            bestMatch = name;
-                        }
-                    }
-                }
-    
-                if (!bestMatch.isEmpty()) {
-                    matchingUsers.add(bestMatch);
-                }
-    
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (resultSet != null) resultSet.close();
-                    if (statement != null) statement.close();
-                    if (connection != null) connection.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return matchingUsers;
-        }
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public MatchAlgoProject(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
+    
+    @Transactional 
+    // Method to find matching users
+    public List<String> findMatches(String userString, double threshold) {
+        List<String> matchingUsers = new ArrayList<>();
+        
+        // SQL query to fetch names and matching strings from the database (MyAppUser table)
+        String query = "SELECT name, matching_string FROM my_app_user";
+        
+        // Using JdbcTemplate to execute the query and map the result to MyAppUser objects
+        List<MyAppUser> myAppUsers = jdbcTemplate.query(query, (rs, rowNum) -> {
+            String name = rs.getString("name");
+            String matchingString = rs.getString("matching_string");
+
+            // Create and return a MyAppUser object
+            MyAppUser myAppUser = new MyAppUser(name, "", "", ""); // Create with name, or update as per your logic
+            myAppUser.setMatchingString(matchingString);
+            return myAppUser;
+        });
+
+        EventNameMatcher matcher = new EventNameMatcher();
+
+        // Compare strings using EventNameMatcher
+        for (MyAppUser myAppUser : myAppUsers) {
+            String name = myAppUser.getName();
+            String matchingString = myAppUser.getMatchingString();
+            
+            // Compare strings using EventNameMatcher
+            double percentage = matcher.getPercentage(userString, matchingString);
+
+            if (percentage >= threshold) {
+                matchingUsers.add(name); // Add name to result list if it matches
+            }
+        }
+
+        return matchingUsers; // Return a list of matching user names
+    }
+}

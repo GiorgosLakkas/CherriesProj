@@ -1,6 +1,7 @@
 package com.example.unimeets;
 public class UserFilter {
-
+    
+    private String id; 
     private Integer age;
     private String university;
     private String departmentOfStudies;
@@ -10,8 +11,9 @@ public class UserFilter {
     private String academicYear;
 
 
-    public UserFilter(Integer age, String university, String departmentOfStudies, String sex, 
+    public UserFilter(String id, Integer age, String university, String departmentOfStudies, String sex, 
                       String interests, String volunteeringProjects, String academicYear) {
+        this.id = id;
         this.age = age;
         this.university = university;
         this.departmentOfStudies = departmentOfStudies;
@@ -20,7 +22,10 @@ public class UserFilter {
         this.volunteeringProjects = volunteeringProjects;
         this.academicYear = academicYear;
     }
-
+    
+    public String getId() {
+        return id;
+    }
 
     public Integer getAge() {
         return age;

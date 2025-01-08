@@ -1,10 +1,12 @@
 package com.example.unimeets;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class MatchAlgoFriend {
@@ -17,6 +19,7 @@ public class MatchAlgoFriend {
         this.userProfileRepository = userProfileRepository;
     }
 
+    @Transactional
     public List<String> getUsersAbove95Match(UserProfile userProfile) {
         String[] User1 = new String[22];
 
@@ -29,15 +32,13 @@ public class MatchAlgoFriend {
         for (int i = 0; i < interests.size(); i++) {
             User1[4 + i] = interests.get(i);
         }
-    }    
-    public List<FinalProduct> getUsersAbove95Match() {
 
         List<UserProfile> allUsers = userProfileRepository.findAll();
         List<String> highMatchUsers = new ArrayList<>();
 
         for (UserProfile otherUser : allUsers) {
             if (otherUser.getMyAppUser().getUsername().equals(User1[4])) {
-                continue; 
+                continue; // Skip comparing the user with themselves
             }
 
             String[] User2 = new String[22];
@@ -50,18 +51,29 @@ public class MatchAlgoFriend {
                 User2[4 + i] = interestsOtherUser.get(i);
             }
 
+            // Calculate match interest and base
             double matchInterest = CalculateMatchInterest(User1, User2);
             matchInterest = AdaptMatchInterest(matchInterest);
             double matchBase = CalculateMatchBase(User1, User2);
             double finalMatch = 0.5 * matchInterest + 0.5 * matchBase;
 
+            // If match is above 95%, add user's name to the list
             if (finalMatch >= 0.95) {
-                highMatchUsers.add(otherUser.getMyAppUser().getName() + " - Match: " + (finalMatch * 100) + "%");
+                highMatchUsers.add(otherUser.getMyAppUser().getName() + " (" + finalMatch + ")");
             }
         }
+
+        // Sort the matching users based on the percentage in descending order
+        highMatchUsers.sort((user1, user2) -> {
+            double match1 = Double.parseDouble(user1.split(" \\(")[1].replace(")", ""));
+            double match2 = Double.parseDouble(user2.split(" \\(")[1].replace(")", ""));
+            return Double.compare(match2, match1);
+        });
+
         return highMatchUsers;
     }
 
+    // Method to calculate interest match
     public double CalculateMatchInterest(String[] User1, String[] User2) {
         double matchInterest = 0;
         for (int i = 4; i < User1.length; i++) {
@@ -72,6 +84,7 @@ public class MatchAlgoFriend {
         return matchInterest / 18;
     }
 
+    // Adapt match interest based on thresholds
     public double AdaptMatchInterest(double matchInterest) {
         if (matchInterest < 0.3) {
             matchInterest -= 0.1 * matchInterest;
@@ -83,6 +96,7 @@ public class MatchAlgoFriend {
         return Math.min(1.0, Math.max(0, matchInterest));
     }
 
+    // Method to calculate base match based on department and age
     public double CalculateMatchBase(String[] User1, String[] User2) {
         if (User1[1].equals(User2[1]) && User1[2].equals(User2[2])) {
             return 1;
