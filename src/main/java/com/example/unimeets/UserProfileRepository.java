@@ -2,9 +2,10 @@ package com.example.unimeets;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
+@Repository
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
     // Find a UserProfile by the associated MyAppUser ID (Assuming a relation between UserProfile and MyAppUser)
     Optional<UserProfile> findByMyAppUserId(Long myAppUserId);

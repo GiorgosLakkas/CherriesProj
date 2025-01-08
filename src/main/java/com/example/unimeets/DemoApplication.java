@@ -14,6 +14,9 @@ import java.util.Scanner;
 public class DemoApplication implements CommandLineRunner{
 
     @Autowired
+    private MatchAlgoFriend matchAlgoFriend;
+
+    @Autowired
     private AssignmentRepository assignmentRepository;
 
     @Autowired
@@ -31,7 +34,7 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Override
     public void run(String... args) throws Exception {
-		Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 		System.out.println("Welcome to the application!");
 
 		MyAppUser newUser = registerUser(scanner);
@@ -48,17 +51,58 @@ public class DemoApplication implements CommandLineRunner{
         System.out.println("Year of Study: " + userProfile.getYearOfStudy());
         System.out.println("Interests: " + userProfile.getInterests());
         System.out.println("Volunteer Activities: " + userProfile.getVolunteerActivities());
+        
+        int choice;
+        do {
+            System.out.println("Please enter your choice:");
+            System.out.println("1: socializing");
+            System.out.println("2: event");
+            System.out.println("for choice 2 enter name of event ;)");
+            System.out.println("3: assignment");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next();
+            }
+            choice = scanner.nextInt();
+            if (choice < 1 || choice > 3) {
+                System.out.println("Invalid choice. Please select 1, 2, or 3.");
+            }
+        } while (choice < 1 || choice > 3);
 
-        // επιλογή σκοπού
-        System.out.println("\nWould you like to create an assignment? (yes/no):");
-        String createAssignmentChoice = scanner.nextLine().trim().toLowerCase();
-
-        if ("yes".equals(createAssignmentChoice)) {
-            Assignment assignment = Assignment.createAssignment();
-            assignmentRepository.save(assignment); // Save the assignment to the database
-            System.out.println("Assignment created and saved: " + assignment);
-
-            System.out.println("\nThank you for using the application!");
+        System.out.println("You selected choice: " + choice);
+        switch (choice) {
+            case 1:
+                MatchAlgoFriend friend = new MatchAlgoFriend (userProfileRepository);
+                List<String> matches = friend.getUsersAbove95Match(userProfile);
+                if (matches.isEmpty()) {
+                    System.out.println("No matches found with 95% or higher.");
+                } else {
+                    System.out.println("High-match users for socializing:");
+                    matches.forEach(System.out::println);
+                }
+                break;
+            case 2:
+                MatchAlgoEvent event = new MatchAlgoEvent();
+                String eventString = scanner.nextLine();
+                List<String> matches2 = event.findEventAttendees(eventString);
+                break;
+            case 3:
+                MatchAlgoProject project = new MatchAlgoProject();
+                System.out.println("Enter the project ID:");
+                String projectId = scanner.nextLine(); // Get the project ID from the user
+                
+                System.out.println("Enter the match threshold (e.g., 0.95):");
+                double threshold = scanner.nextDouble(); // Get the threshold from the user
+                
+                List<String> matches3 = project.findMatches(projectId, threshold);
+                
+                if (matches3.isEmpty()) {
+                    System.out.println("No matches found for project ID: " + projectId + " with threshold: " + threshold);
+                } else {
+                    System.out.println("Matches for project ID " + projectId + ":");
+                    matches3.forEach(System.out::println);
+                }
+                break;
         }
     }
     private MyAppUser registerUser( Scanner scanner) {
@@ -134,5 +178,20 @@ public class DemoApplication implements CommandLineRunner{
                 System.out.println("Please try again.");
             }
         }
-    } 
+    }
+    public static void handleAssignmentCreation(Scanner scanner, AssignmentRepository assignmentRepository) {
+        System.out.println("\nWould you like to create an assignment? (yes/no):");
+        String createAssignmentChoice = scanner.nextLine().trim().toLowerCase();
+
+        if ("yes".equals(createAssignmentChoice)) {
+            // Create and save the assignment
+            Assignment assignment = Assignment.createAssignment(); // Assuming this method exists in the Assignment class
+            assignmentRepository.save(assignment); // Save the assignment to the database
+
+            System.out.println("Assignment created and saved: " + assignment);
+            System.out.println("\nThank you for using the application!");
+        } else {
+            System.out.println("No assignment was created.");
+        }
+    }
 }

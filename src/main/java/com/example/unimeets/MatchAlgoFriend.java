@@ -4,15 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MatchAlgoFriend {
 
-    private String[] User1 = new String[22];
+    private final UserProfileRepository userProfileRepository;
 
+    // Constructor to inject UserProfileRepository
     @Autowired
-    private UserProfileRepository userProfileRepository;
+    public MatchAlgoFriend(UserProfileRepository userProfileRepository) {
+        this.userProfileRepository = userProfileRepository;
+    }
 
-    public MatchAlgoFriend(UserProfile userProfile) {
+    public List<String> getUsersAbove95Match(UserProfile userProfile) {
+        String[] User1 = new String[22];
+
+        // Initialize User1 array with values from userProfile
         User1[0] = userProfile.getUniversity();
         User1[1] = userProfile.getDepartment();
         User1[2] = String.valueOf(userProfile.getAge());
@@ -21,9 +29,7 @@ public class MatchAlgoFriend {
         for (int i = 0; i < interests.size(); i++) {
             User1[4 + i] = interests.get(i);
         }
-    }
 
-    public List<String> getUsersAbove95Match() {
         List<UserProfile> allUsers = userProfileRepository.findAll();
         List<String> highMatchUsers = new ArrayList<>();
 
@@ -37,9 +43,9 @@ public class MatchAlgoFriend {
             User2[1] = otherUser.getDepartment();
             User2[2] = String.valueOf(otherUser.getAge());
             User2[3] = otherUser.getGender();
-            List<String> interests = otherUser.getInterests();
-            for (int i = 0; i < interests.size(); i++) {
-                User2[4 + i] = interests.get(i);
+            List<String> interestsOtherUser = otherUser.getInterests();
+            for (int i = 0; i < interestsOtherUser.size(); i++) {
+                User2[4 + i] = interestsOtherUser.get(i);
             }
 
             double matchInterest = CalculateMatchInterest(User1, User2);
@@ -84,4 +90,3 @@ public class MatchAlgoFriend {
         return 0;
     }
 }
-
