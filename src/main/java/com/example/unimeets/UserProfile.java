@@ -47,8 +47,6 @@ public class UserProfile {
     @JoinColumn(name = "myappuser_id")
     private MyAppUser myAppUser;
 
-    // Other methods
-
     public void setMyAppUser(MyAppUser myAppUser) {
         this.myAppUser = myAppUser;
     }
@@ -102,22 +100,22 @@ public class UserProfile {
         return this.yearOfStudy;
     }
 
+    public List<String> getInterests() {
+        return this.interests;
+    }
+
     public void setInterests(List<String> interests, List<String> allInterests) {
         this.interests = interests;
         this.interestsMatrix = generateBinaryMatrix(interests, allInterests);  // Generate binary matrix and set
     }
 
-    public List<String> getInterests() {
-        return this.interests;
+    public List<String> getVolunteerActivities() {
+        return this.volunteerActivities;
     }
 
     public void setVolunteerActivities(List<String> volunteerActivities, List<String> allActivities) {
         this.volunteerActivities = volunteerActivities;
         this.volunteerMatrix = generateBinaryMatrix(volunteerActivities, allActivities);  // Generate binary matrix and set
-    }
-
-    public List<String> getVolunteerActivities() {
-        return this.volunteerActivities;
     }
 
     public byte[] getInterestsMatrix() {

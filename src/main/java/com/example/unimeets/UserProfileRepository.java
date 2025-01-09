@@ -26,7 +26,7 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
     List<UserProfile> findByGender(String gender);
 
     // Find UserProfiles by specific interest (Assuming you want to search by interest as a string)
-    List<UserProfile> findByInterestsContains(String interest);
+    List<UserProfile> findByInterestsContains(String interests);
 
     // You can also create more complex queries, for example:
     // Find UserProfiles by University and Department

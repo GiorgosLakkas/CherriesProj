@@ -37,7 +37,7 @@ public class MatchAlgoFriend {
         List<String> highMatchUsers = new ArrayList<>();
 
         for (UserProfile otherUser : allUsers) {
-            if (otherUser.getMyAppUser().getUsername().equals(userProfile.getMyAppUser().getId())) {
+            if (otherUser.getMyAppUser().getId().equals(userProfile.getMyAppUser().getId())) {
                 continue; // Skip comparing the user with themselves
             }
 
@@ -58,7 +58,7 @@ public class MatchAlgoFriend {
             double finalMatch = 0.5 * matchInterest + 0.5 * matchBase;
 
             // If match is above 95%, add user's name to the list
-            if (finalMatch >= 0.95) {
+            if (finalMatch >= 0.10) {
                 highMatchUsers.add(otherUser.getMyAppUser().getName() + " (" + finalMatch + ")");
             }
         }
