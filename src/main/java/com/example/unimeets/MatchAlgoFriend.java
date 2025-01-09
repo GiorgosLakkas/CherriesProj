@@ -37,7 +37,7 @@ public class MatchAlgoFriend {
         List<String> highMatchUsers = new ArrayList<>();
 
         for (UserProfile otherUser : allUsers) {
-            if (otherUser.getMyAppUser().getUsername().equals(User1[4])) {
+            if (otherUser.getMyAppUser().getUsername().equals(userProfile.getMyAppUser().getId())) {
                 continue; // Skip comparing the user with themselves
             }
 
@@ -73,16 +73,24 @@ public class MatchAlgoFriend {
         return highMatchUsers;
     }
 
-    // Method to calculate interest match
-    public double CalculateMatchInterest(String[] User1, String[] User2) {
+      // Method to calculate interest match
+      public double CalculateMatchInterest(String[] User1, String[] User2) {
         double matchInterest = 0;
+        int totalInterests = 0;
         for (int i = 4; i < User1.length; i++) {
-            if (User1[i] != null && User1[i].equals(User2[i])) {
-                matchInterest++;
+            if (User1[i] != null && User2[i] != null) {
+                totalInterests++;
+                if (User1[i] != null && User1[i].equals(User2[i])) {
+                    matchInterest++;
+                }
             }
         }
-        return matchInterest / 18;
+        if ( totalInterests == 0) {
+            return 0;
+        }
+        return matchInterest / totalInterests;
     }
+
 
     // Adapt match interest based on thresholds
     public double AdaptMatchInterest(double matchInterest) {
