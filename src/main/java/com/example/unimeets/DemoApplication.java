@@ -100,12 +100,40 @@ public class DemoApplication implements CommandLineRunner{
                 break;
             case 3:
                 // Pass JdbcTemplate to MatchAlgoProject constructor
-                MatchAlgoProject project = new MatchAlgoProject(jdbcTemplate);  
-                System.out.println("Enter the user string to match against:");
-                String userString = scanner.nextLine(); // Get the user string to match
+                MatchAlgoProject project = new MatchAlgoProject(jdbcTemplate);
             
-                System.out.println("Enter the match threshold (e.g., 0.95):");
-                double threshold = scanner.nextDouble(); // Get the threshold from the user
+                // Clear the buffer after previous input
+                scanner.nextLine();
+            
+                // Get user string with proper validation
+                String userString = null;
+                while (userString == null || userString.trim().isEmpty()) {
+                    System.out.println("Enter the user string to match against:");
+                    userString = scanner.nextLine().trim(); // Read and trim input
+                    newUser.setMatchingString(userString); 
+            
+                    if (userString.isEmpty()) {
+                        System.out.println("User string cannot be empty. Please try again.");
+                    }
+                }
+                
+                myAppUserRepository.save(newUser);
+                
+                // Get the match threshold
+                double threshold = 0.0;
+                while (threshold <= 0 || threshold > 1) {
+                    try {
+                        System.out.println("Enter the match threshold (e.g., 0.95):");
+                        threshold = scanner.nextDouble();
+            
+                        if (threshold <= 0 || threshold > 1) {
+                            System.out.println("Invalid threshold. Please enter a value between 0 and 1.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Invalid input. Threshold must be a number between 0 and 1.");
+                        scanner.next(); // Clear invalid input
+                    }
+                }
             
                 // Find the matching users
                 List<String> matches3 = project.findMatches(userString, threshold);
@@ -114,9 +142,9 @@ public class DemoApplication implements CommandLineRunner{
                     System.out.println("No matches found for the provided string with threshold: " + threshold);
                 } else {
                     System.out.println("Matches:");
-                    matches3.forEach(System.out::println); // Display the matched user names
+                    matches3.forEach(System.out::println);
                 }
-            break;
+                break;
         }
     }
 

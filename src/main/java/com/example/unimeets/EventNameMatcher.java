@@ -7,7 +7,8 @@ public class EventNameMatcher {
     
         public double getPercentage(String name1, String name2) {
 
-            if (name1 == null || name2 == null) {
+            System.out.println("Comparing: '" + name1 + "' with '" + name2 + "'");
+            if (name1 == null || name2 == null || name1.trim().isEmpty() || name2.trim().isEmpty()) {
                 System.out.println("One or both names are null. Returning similarity as 0.");
                 return 0.0;  // Return 0 similarity if any name is null
             }
@@ -19,7 +20,15 @@ public class EventNameMatcher {
         LevenshteinDistance levenshtein = new LevenshteinDistance();
         int distance = levenshtein.apply(name1, name2);
         int maxLength = Math.max(name1.length(), name2.length());
-        double levenshteinSimilarity = (1 - ((double) distance / maxLength)) * 100;
+
+        double levenshteinSimilarity = 0.0;
+        if (maxLength > 0) {
+            levenshteinSimilarity = (1 - ((double) distance / maxLength)) * 100;
+        } else {
+            System.out.println("Both names are empty. Returning similarity as 0%.");
+            return 0.0;
+        }
+
 
         // Calculate Jaro-Winkler Similarity
         JaroWinklerSimilarity jaroWinkler = new JaroWinklerSimilarity();
