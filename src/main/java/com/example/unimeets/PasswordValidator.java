@@ -13,7 +13,7 @@ public class PasswordValidator {
         while (true) {
             password = scanner.nextLine().trim();
             if(!hasEnough(password)){
-                System.out.print("Your password should have at least 7 characters");
+                System.out.println("Your password should have at least 7 characters");
                 continue;
             }
    

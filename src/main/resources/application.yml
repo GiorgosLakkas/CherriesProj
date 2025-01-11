@@ -10,8 +10,7 @@ spring:
     hibernate:
       ddl-auto: update
     properties:
-      debug: true
       hibernate:
-        database-platform: org.hibernate.dialect.MySQLDialect
+        database-platform: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
     show-sql: true
