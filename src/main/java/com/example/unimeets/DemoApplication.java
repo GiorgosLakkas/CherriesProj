@@ -93,23 +93,43 @@ public class DemoApplication implements CommandLineRunner{
                 }
                 break;
             case 2:
-                // Make sure the constructor of MatchAlgoEvent works with JdbcTemplate
-                MatchAlgoEvent event = new MatchAlgoEvent(jdbcTemplate); 
-                String eventString = scanner.nextLine();
+
+                MatchAlgoEvent event = new MatchAlgoEvent(jdbcTemplate);
+                scanner.nextLine();
+        
+                String eventString = null;
+                while (eventString == null || eventString.trim().isEmpty()) {
+                    System.out.println("Enter the event name to match against:");
+                    eventString = scanner.nextLine().trim();
+                    newUser.setMatchingString(eventString); 
+            
+                    if (eventString.isEmpty()) {
+                        System.out.println("Event name cannot be empty. Please try again.");
+                    }
+                }
+
+                myAppUserRepository.save(newUser);
+            
                 List<String> matches2 = event.findEventAttendees(eventString);
+                
+                if (matches2.isEmpty()) {
+                    System.out.println("No matches found");
+                } else {
+                    System.out.println("Matches:");
+                    matches2.forEach(System.out::println);
+                }
                 break;
             case 3:
                 // Pass JdbcTemplate to MatchAlgoProject constructor
                 MatchAlgoProject project = new MatchAlgoProject(jdbcTemplate);
             
-                // Clear the buffer after previous input
                 scanner.nextLine();
             
                 // Get user string with proper validation
                 String userString = null;
                 while (userString == null || userString.trim().isEmpty()) {
                     System.out.println("Enter the user string to match against:");
-                    userString = scanner.nextLine().trim(); // Read and trim input
+                    userString = scanner.nextLine().trim();
                     newUser.setMatchingString(userString); 
             
                     if (userString.isEmpty()) {
