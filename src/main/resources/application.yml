@@ -2,15 +2,15 @@ spring:
   main:
     web-application-type: none
   datasource:
-    url: jdbc:h2:~/testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
+    url: jdbc:mysql://localhost:3306/Cherries
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: fairyberry
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        database-platform: org.hibernate.dialect.H2Dialect
+        database-platform: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
     show-sql: true
