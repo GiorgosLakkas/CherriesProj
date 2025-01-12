@@ -29,13 +29,29 @@
 
 ## Project Structure
 
-- pom.xml: maven dependencies
-- src/main/java/com/example/unimeets: Application code.
-- src/main/resources: Application configuration.
-- src/test/java: Unit tests.
-- pom.xml: Maven dependencies.
-- target
--style.css
+UniMeets/
+│
+├── pom.xml                       # Maven dependencies and configurations        
+├── README.md                # Project documentation
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/example/unimeets/
+│   │   │       ├── DemoApplication.java  # Main application class
+│   │   │       
+│   │   │             
+│   │   │       
+│   │   └── resources/
+│   │       ├── application.properties     # Spring Boot configuration
+│   │       └── static/
+│   │           └── style.css              # Application styles
+│   │
+│   ├── test/
+│   │   └── java/
+│   │       └── com/example/unimeets/      # Unit and integration tests
+│
+├── target/                       # Compiled files after build (auto-generated)
+│   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar
 
 ## uml
 ## Επισκόπηση των δομών δεδομένων και των αλγορίθμων που χρησιμοποιεί η εφαρμογή
