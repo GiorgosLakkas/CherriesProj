@@ -25,6 +25,21 @@
 1. mvn clean install
 2. java -jar junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar
 
+## Οδηγίες Χρήσης
+
+## Project Structure
+
+- pom.xml: maven dependencies
+- src/main/java/com/example/unimeets: Application code.
+- src/main/resources: Application configuration.
+- src/test/java: Unit tests.
+- pom.xml: Maven dependencies.
+- target
+-style.css
+
+## uml
+## Επισκόπηση των δομών δεδομένων και των αλγορίθμων που χρησιμοποιεί η εφαρμογή
+
 ## Συμμετοχή
 Εάν θέλεις να συμβάλεις στην ανάπτυξη του UniMeets, ακολούθησε τα παρακάτω βήματα:
 1. Κάνε **fork** το repository.
