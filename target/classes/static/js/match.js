@@ -5,14 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     findMatchButton.addEventListener('click', () => {
         matchResults.innerHTML = "<h2>Finding your perfect match...</h2>";
 
-        // Simulated data (to be replaced by Java backend results)
         setTimeout(() => {
             const matchData = {
-                name: "Alex Johnson",
-                university: "University of California",
-                department: "Computer Science",
-                year: "3rd Year",
-                hobbies: "Coding, Hiking, Photography",
+                name: "Myrto Iovi",
+                university: "Athens University of Economics and Business",
+                department: "Management Science and Technology",
+                year: "2nd Year",
+                hobbies: "Coding, Hiking, Cooking",
                 category: "Friendship",
                 matchPercentage: 87,
             };
@@ -27,6 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Category:</strong> ${matchData.category}</p>
                 <p><strong>Match Percentage:</strong> ${matchData.matchPercentage}%</p>
             `;
-        }, 2000); // Simulates processing time
+        }, 2000); 
     });
 });
