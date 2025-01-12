@@ -50,6 +50,25 @@
 
 Αυτό το έργο διαθέτει άδεια χρήσης υπό την Άδεια Ελεύθερου Λογισμικού CEA CNRS Inria, έκδοση 2.1. Δείτε το αρχείο [LICENSE](LICENSE) για περισσότερες λεπτομέρειες.
 
+## Άδειες Χρήσης Κώδικα Τρίτων
+
+Αυτό το έργο χρησιμοποιεί τις παρακάτω βιβλιοθήκες τρίτων και τις αντίστοιχες άδειες χρήσης:
+
+- **Spring Boot Starter Web, Data JPA, Security, Mail** - [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- **JUnit Jupiter (junit-bom, junit-jupiter)** - [Eclipse Public License 2.0](https://www.eclipse.org/legal/epl-2.0/)  
+- **Apache Commons Text** - [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- **Jakarta Validation API** - [Eclipse Public License 2.0](https://www.eclipse.org/legal/epl-2.0/)  
+- **Jakarta Mail API** - [Eclipse Public License 2.0](https://www.eclipse.org/legal/epl-2.0/)  
+- **MySQL Connector Java** - [GNU General Public License v2 with FOSS Exception](https://www.mysql.com/about/legal/licensing/)  
+- **MSSQL JDBC Driver** - [MIT License](https://opensource.org/licenses/MIT)  
+- **Oracle JDBC (ojdbc11)** - [Oracle Technology Network License](https://www.oracle.com/downloads/licenses/otn-license.html)  
+- **jBCrypt** - [ISC License](https://opensource.org/licenses/ISC)  
+- **Maven Checkstyle Plugin** - [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- **Maven Jar Plugin** - [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+
+Οι πλήρεις όροι χρήσης βρίσκονται στους αντίστοιχους συνδέσμους.
+
+
 
 
 =======
