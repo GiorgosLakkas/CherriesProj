@@ -9,8 +9,12 @@ import java.util.List;
 public class MatchAlgoProject{
 
     
-
-    
+@Autowired
+    public MatchAlgoProject(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate=jdbcTemplate;
+        
+    }
+    @Transactional
         // Method to find matching users
         public List<String> findMatches(String userString, double threshold) {
             List<String> matchingUsers = new ArrayList<>();
