@@ -5,7 +5,7 @@ import org.apache.commons.text.similarity.JaroWinklerSimilarity;
 
 public class EventNameMatcher {
     
-        public double getPercentage(String name1, String name2) {
+        public  static double getPercentage(String name1, String name2) {
 
             System.out.println("Comparing: '" + name1 + "' with '" + name2 + "'");
             if (name1 == null || name2 == null || name1.trim().isEmpty() || name2.trim().isEmpty()) {
