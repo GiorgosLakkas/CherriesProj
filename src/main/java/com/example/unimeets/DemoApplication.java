@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,7 @@ public class DemoApplication implements CommandLineRunner{
     private final MatchAlgoProject matchAlgoProject;
     private final MatchAlgoEvent matchAlgoEvent;
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     @Autowired
     private AssignmentRepository assignmentRepository;
 
@@ -94,7 +93,7 @@ public class DemoApplication implements CommandLineRunner{
                 break;
             case 2:
 
-                MatchAlgoEvent event = new MatchAlgoEvent(jdbcTemplate);
+                MatchAlgoEvent event = new MatchAlgoEvent(namedParameterJdbcTemplate);
                 scanner.nextLine();
         
                 String eventString = null;
@@ -121,7 +120,7 @@ public class DemoApplication implements CommandLineRunner{
                 break;
             case 3:
                 // Pass JdbcTemplate to MatchAlgoProject constructor
-                MatchAlgoProject project = new MatchAlgoProject(jdbcTemplate);
+                MatchAlgoProject project = new MatchAlgoProject(namedParameterJdbcTemplate);
             
                 scanner.nextLine();
             

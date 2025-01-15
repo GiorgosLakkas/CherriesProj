@@ -1,7 +1,7 @@
 package com.example.unimeets;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -14,12 +14,13 @@ import java.util.List;
 @Component
 public class MatchAlgoEvent {
 
-     private final JdbcTemplate jdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Autowired
-    public MatchAlgoEvent(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public MatchAlgoEvent(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
+
 
     // Method to find users attending an event based on the first word match
     public List<String> findEventAttendees(String eventString) {
@@ -30,7 +31,7 @@ public class MatchAlgoEvent {
         String query = "SELECT name, matching_string FROM my_app_user";
         
                 // Use JdbcTemplate to execute the query
-                jdbcTemplate.query(query, (rs) -> {
+                namedParameterJdbcTemplate.query(query, (rs) -> {
                     String name = rs.getString("name");
                     String matchingString = rs.getString("matching_string");
         
