@@ -84,7 +84,7 @@ UniMeets/
 │   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar  
 
 ## UML
-![\UML Diagram]()
+![image alt](https://github.com/GiorgosLakkas/CherriesProj/blob/2bdf5f542ea077f17d9ab813eb4acae9281a9d1f/umldiagram.png)
 
 
 ## Επισκόπηση Δομών Δεδομένων και Αλγορίθμων
