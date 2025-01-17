@@ -50,7 +50,7 @@ dir
 ## Οδηγίες Χρήσης
 - Εγγραφή στην εφαρμογή (ονοματεπώνυμο, όνομα χρήστη, κωδικός πρόσβασης, email)
 - Συμπλήρωση προφίλ με τα στοιχεία του χρήστη (Υποχρεωτικά πεδία: ηλικία, φύλο, πανεπιστήμιο, τμήμα, έτος φοίτησης  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Προαιρετικά πεδία: ενδιαφέροντα (μέχρι 5), εθελοντικές δράσεις)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Προαιρετικά πεδία: ενδιαφέροντα (μέχρι 5), εθελοντικές δράσεις)
 - Επιλογή σκοπού αναζήτησης ατόμου (κοινωνικοποίηση, εργασία, event)
 - Aν επιλεχθεί η κοινωνικοποίηση, γίνεται αυτόματα η αναζήτηση
 - Αν επιλεχθεί η εργασία, συμπληρώνει ο χρήστης τμήμα, εξάμηνο, μάθημα, αριθμό συμμετεχόντων
