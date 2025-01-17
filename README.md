@@ -8,8 +8,44 @@
 
 
 ## Οδηγίες εκτέλεσης και μεταγλώττισης
-1. mvn clean install
-2. java -jar junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar
+Οδηγίες εκτέλεσης και μεταγλώττισης
+Μεταγλώττιση του έργου
+Εκτελέστε την εντολή:
+mvn clean install
+
+Αυτή η εντολή θα δημιουργήσει το αρχείο JAR στην τοποθεσία target/.
+
+Εκτέλεση του JAR
+Πριν εκτελέσετε το αρχείο JAR, πρέπει να μεταβείτε στον φάκελο που το περιέχει. Ακολουθήστε τα παρακάτω βήματα:
+
+Ανοίξτε ένα τερματικό (ή command prompt).
+
+Μεταβείτε στον φάκελο target που περιέχει το αρχείο JAR.
+Για παράδειγμα, αν το αρχείο JAR βρίσκεται στον φάκελο Desktop/Cherry/target:
+
+Linux/Mac:
+cd ~/Desktop/Cherry/target
+
+Windows:
+cd C:\Users\<ΤοΌνομαΧρήστηΣας>\Desktop\Cherry\target
+
+(Αντικαταστήστε το <ΤοΌνομαΧρήστηΣας> με το όνομα χρήστη του υπολογιστή σας.)
+
+Επιβεβαιώστε ότι βρίσκεστε στον σωστό φάκελο.
+
+Χρησιμοποιήστε την εντολή:
+
+Linux/Mac:
+ls
+
+Windows:
+dir
+
+Θα πρέπει να δείτε το αρχείο junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar στη λίστα.
+
+Εκτελέστε το αρχείο JAR:
+
+java -jar junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar
 
 ## Οδηγίες Χρήσης
 
