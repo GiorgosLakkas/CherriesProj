@@ -62,26 +62,26 @@ dir
 UniMeets/
 │
 ├── pom.xml                       # Maven dependencies and configurations        
-├── README.md                # Project documentation
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/example/unimeets/
-│   │   │       ├── DemoApplication.java  # Main application class
+├── README.md                # Project documentation  
+├── src/  
+│   ├── main/  
+│   │   ├── java/  
+│   │   │   └── com/example/unimeets/  
+│   │   │       ├── DemoApplication.java  # Main application class  
 │   │   │       
 │   │   │             
 │   │   │       
-│   │   └── resources/
-│   │       ├── application.properties     # Spring Boot configuration
-│   │       └── static/
-│   │           └── style.css              # Application styles
+│   │   └── resources/  
+│   │       ├── application.properties     # Spring Boot configuration  
+│   │       └── static/  
+│   │           └── style.css              # Application styles  
 │   │
-│   ├── test/
-│   │   └── java/
-│   │       └── com/example/unimeets/      # Unit and integration tests
+│   ├── test/  
+│   │   └── java/  
+│   │       └── com/example/unimeets/      # Unit and integration tests  
 │
-├── target/                       # Compiled files after build (auto-generated)
-│   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar
+├── target/                       # Compiled files after build (auto-generated)  
+│   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar  
 
 ## uml
 
