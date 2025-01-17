@@ -83,8 +83,8 @@ UniMeets/
 ├── target/ &nbsp;&nbsp;&nbsp;# Compiled files after build (auto-generated)  
 │   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar  
 
-## uml
-![\UML Diagram](CherriesProj/assets/umlfile.jpg)
+## UML
+![\UML Diagram]()
 
 
 ## Επισκόπηση Δομών Δεδομένων και Αλγορίθμων
