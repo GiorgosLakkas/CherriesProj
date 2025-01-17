@@ -11,7 +11,7 @@
 Οδηγίες εκτέλεσης και μεταγλώττισης
 Μεταγλώττιση του έργου
 - Εκτελέστε την εντολή:
-mvn clean install
+`mvn clean install`
 
 Αυτή η εντολή θα δημιουργήσει το αρχείο JAR στην τοποθεσία target/.
 
@@ -24,10 +24,10 @@ mvn clean install
 Για παράδειγμα, αν το αρχείο JAR βρίσκεται στον φάκελο Desktop/Cherry/target:
 
 Linux/Mac:
-cd ~/Desktop/Cherry/target
+`cd ~/Desktop/Cherry/target`
 
 Windows:
-cd C:\Users\<ΤοΌνομαΧρήστηΣας>\Desktop\Cherry\target
+`cd C:\Users\<ΤοΌνομαΧρήστηΣας>\Desktop\Cherry\target`
 
 (Αντικαταστήστε το <ΤοΌνομαΧρήστηΣας> με το όνομα χρήστη του υπολογιστή σας.)
 
@@ -45,7 +45,7 @@ dir
 
 - Εκτελέστε το αρχείο JAR:
 
-java -jar junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar
+`java -jar junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar`
 
 ## Οδηγίες Χρήσης
 - Εγγραφή στην εφαρμογή (ονοματεπώνυμο, όνομα χρήστη, κωδικός πρόσβασης, email)
