@@ -50,7 +50,7 @@ dir
 ## Οδηγίες Χρήσης
 - Εγγραφή στην εφαρμογή (ονοματεπώνυμο, όνομα χρήστη, κωδικός πρόσβασης, email)
 - Συμπλήρωση προφίλ με τα στοιχεία του χρήστη (Υποχρεωτικά πεδία: ηλικία, φύλο, πανεπιστήμιο, τμήμα, έτος φοίτησης  
-						Προαιρετικά πεδία: ενδιαφέροντα (μέχρι 5), εθελοντικές δράσεις)
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Προαιρετικά πεδία: ενδιαφέροντα (μέχρι 5), εθελοντικές δράσεις)
 - Επιλογή σκοπού αναζήτησης ατόμου (κοινωνικοποίηση, εργασία, event)
 - Aν επιλεχθεί η κοινωνικοποίηση, γίνεται αυτόματα η αναζήτηση
 - Αν επιλεχθεί η εργασία, συμπληρώνει ο χρήστης τμήμα, εξάμηνο, μάθημα, αριθμό συμμετεχόντων
@@ -61,26 +61,26 @@ dir
 
 UniMeets/
 │
-├── pom.xml                       # Maven dependencies and configurations        
-├── README.md                # Project documentation  
+├── pom.xml\\\\\\\\\\\\\\\\\\# Maven dependencies and configurations        
+├── README.md\\\\\\\\\\\\\\\\# Project documentation  
 ├── src/  
 │   ├── main/  
 │   │   ├── java/  
 │   │   │   └── com/example/unimeets/  
-│   │   │       ├── DemoApplication.java  # Main application class  
+│   │   │       ├── DemoApplication.java\\\\# Main application class  
 │   │   │       
 │   │   │             
 │   │   │       
 │   │   └── resources/  
-│   │       ├── application.properties     # Spring Boot configuration  
+│   │       ├── application.properties\\\\\\\# Spring Boot configuration  
 │   │       └── static/  
-│   │           └── style.css              # Application styles  
+│   │           └── style.css\\\\\\\\\\\\\\\\# Application styles  
 │   │
 │   ├── test/  
 │   │   └── java/  
-│   │       └── com/example/unimeets/      # Unit and integration tests  
+│   │       └── com/example/unimeets/\\\\\\\\# Unit and integration tests  
 │
-├── target/                       # Compiled files after build (auto-generated)  
+├── target/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\# Compiled files after build (auto-generated)  
 │   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar  
 
 ## uml
