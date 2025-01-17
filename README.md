@@ -36,10 +36,10 @@ Windows:
 - Χρησιμοποιήστε την εντολή:
 
 Linux/Mac:
-ls
+`ls`
 
 Windows:
-dir
+`dir`
 
 Θα πρέπει να δείτε το αρχείο junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar στη λίστα.
 
