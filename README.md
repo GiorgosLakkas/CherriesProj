@@ -50,7 +50,7 @@ dir
 ## Οδηγίες Χρήσης
 - Εγγραφή στην εφαρμογή (ονοματεπώνυμο, όνομα χρήστη, κωδικός πρόσβασης, email)
 - Συμπλήρωση προφίλ με τα στοιχεία του χρήστη (Υποχρεωτικά πεδία: ηλικία, φύλο, πανεπιστήμιο, τμήμα, έτος φοίτησης  
-&nbsp;&nbsp;&nbsp;Προαιρετικά πεδία: ενδιαφέροντα (μέχρι 5), εθελοντικές δράσεις)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Προαιρετικά πεδία: ενδιαφέροντα (μέχρι 5), εθελοντικές δράσεις)
 - Επιλογή σκοπού αναζήτησης ατόμου (κοινωνικοποίηση, εργασία, event)
 - Aν επιλεχθεί η κοινωνικοποίηση, γίνεται αυτόματα η αναζήτηση
 - Αν επιλεχθεί η εργασία, συμπληρώνει ο χρήστης τμήμα, εξάμηνο, μάθημα, αριθμό συμμετεχόντων
@@ -61,26 +61,26 @@ dir
 
 UniMeets/
 │
-├── pom.xml                  # Maven dependencies and configurations        
-├── README.md\\\\\\\\\\\\\\\\# Project documentation  
+├── pom.xml &nbsp;&nbsp;&nbsp;# Maven dependencies and configurations        
+├── README.md &nbsp;&nbsp;&nbsp;# Project documentation  
 ├── src/  
 │   ├── main/  
 │   │   ├── java/  
 │   │   │   └── com/example/unimeets/  
-│   │   │       ├── DemoApplication.java\\\\# Main application class  
+│   │   │       ├── DemoApplication.java &nbsp;&nbsp;&nbsp;# Main application class  
 │   │   │       
 │   │   │             
 │   │   │       
 │   │   └── resources/  
-│   │       ├── application.properties\\\\\\\# Spring Boot configuration  
+│   │       ├── application.properties &nbsp;&nbsp;&nbsp;# Spring Boot configuration  
 │   │       └── static/  
-│   │           └── style.css\\\\\\\\\\\\\\\\# Application styles  
+│   │           └── style.css &nbsp;&nbsp;&nbsp;# Application styles  
 │   │
 │   ├── test/  
 │   │   └── java/  
-│   │       └── com/example/unimeets/\\\\\\\\# Unit and integration tests  
+│   │       └── com/example/unimeets/ &nbsp;&nbsp;&nbsp;# Unit and integration tests  
 │
-├── target/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\# Compiled files after build (auto-generated)  
+├── target/ &nbsp;&nbsp;&nbsp;# Compiled files after build (auto-generated)  
 │   └── junit5-jupiter-starter-maven-1.0-SNAPSHOT.jar  
 
 ## uml
