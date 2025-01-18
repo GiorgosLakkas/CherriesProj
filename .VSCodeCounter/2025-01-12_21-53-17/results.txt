@@ -1,0 +1,170 @@
+Date : 2025-01-12 21:53:17
+Directory : c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj
+Total : 110 files,  8272 codes, 244 comments, 1322 blanks, all 9838 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| CSS             |         19 |      2,284 |         78 |        409 |      2,771 |
+| Java            |         58 |      2,013 |        103 |        357 |      2,473 |
+| HTML            |         20 |      1,824 |         14 |        434 |      2,272 |
+| XML             |          3 |      1,764 |         25 |         33 |      1,822 |
+| JavaScript      |          6 |        310 |         24 |         76 |        410 |
+| Markdown        |          1 |         42 |          0 |         12 |         54 |
+| YAML            |          2 |         32 |          0 |          0 |         32 |
+| Java Properties |          1 |          3 |          0 |          1 |          4 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                 | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                    |        110 |      8,272 |        244 |      1,322 |      9,838 |
+| . (Files)                                                                                                                            |          3 |        384 |          4 |         69 |        457 |
+| src                                                                                                                                  |         52 |      3,440 |        137 |        795 |      4,372 |
+| src\main                                                                                                                             |         52 |      3,440 |        137 |        795 |      4,372 |
+| src\main\java                                                                                                                        |         29 |      1,329 |         79 |        352 |      1,760 |
+| src\main\java\com                                                                                                                    |         29 |      1,329 |         79 |        352 |      1,760 |
+| src\main\java\com\example                                                                                                            |         29 |      1,329 |         79 |        352 |      1,760 |
+| src\main\java\com\example\unimeets                                                                                                   |         29 |      1,329 |         79 |        352 |      1,760 |
+| src\main\resources                                                                                                                   |         23 |      2,111 |         58 |        443 |      2,612 |
+| src\main\resources (Files)                                                                                                           |          1 |         16 |          0 |          0 |         16 |
+| src\main\resources\public                                                                                                            |          1 |         75 |          0 |          8 |         83 |
+| src\main\resources\public\error                                                                                                      |          1 |         75 |          0 |          8 |         83 |
+| src\main\resources\static                                                                                                            |         12 |      1,183 |         51 |        226 |      1,460 |
+| src\main\resources\static\css                                                                                                        |          9 |      1,028 |         39 |        188 |      1,255 |
+| src\main\resources\static\js                                                                                                         |          3 |        155 |         12 |         38 |        205 |
+| src\main\resources\templates                                                                                                         |          9 |        837 |          7 |        209 |      1,053 |
+| target                                                                                                                               |         55 |      4,448 |        103 |        458 |      5,009 |
+| target (Files)                                                                                                                       |          2 |      1,650 |         21 |          9 |      1,680 |
+| target\classes                                                                                                                       |         52 |      2,795 |         82 |        448 |      3,325 |
+| target\classes (Files)                                                                                                               |          1 |         16 |          0 |          0 |         16 |
+| target\classes\com                                                                                                                   |         29 |        684 |         24 |          5 |        713 |
+| target\classes\com\example                                                                                                           |         29 |        684 |         24 |          5 |        713 |
+| target\classes\com\example\unimeets                                                                                                  |         29 |        684 |         24 |          5 |        713 |
+| target\classes\public                                                                                                                |          1 |         75 |          0 |          8 |         83 |
+| target\classes\public\error                                                                                                          |          1 |         75 |          0 |          8 |         83 |
+| target\classes\static                                                                                                                |         12 |      1,183 |         51 |        226 |      1,460 |
+| target\classes\static\css                                                                                                            |          9 |      1,028 |         39 |        188 |      1,255 |
+| target\classes\static\js                                                                                                             |          3 |        155 |         12 |         38 |        205 |
+| target\classes\templates                                                                                                             |          9 |        837 |          7 |        209 |      1,053 |
+| target\maven-archiver                                                                                                                |          1 |          3 |          0 |          1 |          4 |
++--------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                                                             | language        | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\README.md                                                        | Markdown        |         42 |          0 |         12 |         54 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\pom.xml                                                          | XML             |        114 |          4 |         24 |        142 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\AssignementSearch.java        | Java            |         30 |          3 |         10 |         43 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\Assignment.java               | Java            |        120 |          9 |         24 |        153 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\AssignmentRepository.java     | Java            |         15 |          0 |          4 |         19 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\ContentController.java        | Java            |         18 |          0 |          6 |         24 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\DemoApplication.java          | Java            |        194 |         16 |         52 |        262 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\Event.java                    | Java            |         17 |          2 |          8 |         27 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\EventNameMatcher.java         | Java            |         31 |          4 |         13 |         48 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\FilterCriteria.java           | Java            |         41 |          0 |         12 |         53 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\FilterManager.java            | Java            |         30 |          0 |          9 |         39 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MatchAlgoEvent.java           | Java            |         34 |          5 |         11 |         50 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MatchAlgoFriend.java          | Java            |         90 |          8 |         18 |        116 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MatchAlgoProject.java         | Java            |         44 |          7 |         17 |         68 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MatchAlgorithm.java           | Java            |          5 |          0 |          3 |          8 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MyAppUser.java                | Java            |         73 |          0 |         19 |         92 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MyAppUserRepository.java      | Java            |          9 |          0 |          5 |         14 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\MyAppUserService.java         | Java            |         29 |          0 |         10 |         39 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\Notification.java             | Java            |         42 |          2 |         13 |         57 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\NotificationService.java      | Java            |         40 |          1 |          9 |         50 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\PasswordValidator.java        | Java            |         28 |          0 |          8 |         36 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\RegistrationController.java   | Java            |         25 |          0 |          6 |         31 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\SecurityConfig.java           | Java            |         54 |          0 |         12 |         66 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\SimpleMeetingSearch.java      | Java            |         29 |          2 |          8 |         39 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\UserFilter.java               | Java            |         58 |          0 |         13 |         71 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\UserProfile.java              | Java            |        113 |          1 |         36 |        150 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\UserProfileRepository.java    | Java            |         16 |          9 |          9 |         34 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\UserSelection.java            | Java            |        102 |          8 |          8 |        118 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\Valid.java                    | Java            |          3 |          0 |          3 |          6 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\ValidatorUserProfile.java     | Java            |         28 |          2 |          3 |         33 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\java\com\example\unimeets\WebSecurityConfig.java        | Java            |         11 |          0 |          3 |         14 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\application.yml                               | YAML            |         16 |          0 |          0 |         16 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\public\error\404.html                         | HTML            |         75 |          0 |          8 |         83 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\contact.css                        | CSS             |         74 |          0 |         13 |         87 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\explore.css                        | CSS             |         92 |          5 |         14 |        111 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\match.css                          | CSS             |         74 |          1 |         11 |         86 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\notifications.css                  | CSS             |         49 |          4 |         10 |         63 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\profile.css                        | CSS             |          0 |          0 |          1 |          1 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\profilecreation.css                | CSS             |        162 |         11 |         22 |        195 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\signup.css                         | CSS             |        101 |          7 |         19 |        127 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\style.css                          | CSS             |        383 |          7 |         83 |        473 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\css\welcome.css                        | CSS             |         93 |          4 |         15 |        112 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\js\main.js                             | JavaScript      |        108 |         10 |         30 |        148 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\js\match.js                            | JavaScript      |         28 |          0 |          4 |         32 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\static\js\profilecreation.js                  | JavaScript      |         19 |          2 |          4 |         25 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\about.html                          | HTML            |         55 |          0 |         15 |         70 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\contact.html                        | HTML            |        124 |          0 |         28 |        152 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\explore.html                        | HTML            |        106 |          1 |         28 |        135 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\homescr.html                        | HTML            |        177 |          0 |         46 |        223 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\match.html                          | HTML            |         48 |          0 |         12 |         60 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\notifications.html                  | HTML            |        105 |          0 |         24 |        129 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\profilecreation.html                | HTML            |        117 |          6 |         22 |        145 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\signup.html                         | HTML            |         48 |          0 |         18 |         66 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\src\main\resources\templates\welcome.html                        | HTML            |         57 |          0 |         16 |         73 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\style.css                                                        | CSS             |        228 |          0 |         33 |        261 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\checkstyle-checker.xml                                    | XML             |        336 |         21 |          8 |        365 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\checkstyle-result.xml                                     | XML             |      1,314 |          0 |          1 |      1,315 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\application.yml                                   | YAML            |         16 |          0 |          0 |         16 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\AssignementSearch.class      | Java            |         28 |          0 |          0 |         28 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\Assignment.class             | Java            |         39 |          0 |          0 |         39 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\AssignmentRepository.class   | Java            |          6 |          0 |          0 |          6 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\ContentController.class      | Java            |          7 |          0 |          0 |          7 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\DemoApplication.class        | Java            |        104 |          0 |          0 |        104 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\Event.class                  | Java            |         15 |          0 |          0 |         15 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\EventNameMatcher.class       | Java            |         29 |          0 |          0 |         29 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\FilterCriteria.class         | Java            |         20 |          0 |          0 |         20 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\FilterManager.class          | Java            |         16 |          0 |          0 |         16 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MatchAlgoEvent.class         | Java            |         20 |          0 |          0 |         20 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MatchAlgoFriend.class        | Java            |         59 |          0 |          0 |         59 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MatchAlgoProject.class       | Java            |         38 |          0 |          0 |         38 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MatchAlgorithm.class         | Java            |          6 |          0 |          0 |          6 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MyAppUser.class              | Java            |         14 |          0 |          0 |         14 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MyAppUserRepository.class    | Java            |          5 |          0 |          0 |          5 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\MyAppUserService.class       | Java            |         21 |          0 |          0 |         21 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\Notification.class           | Java            |         19 |          0 |          0 |         19 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\NotificationService.class    | Java            |         29 |          0 |          0 |         29 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\PasswordValidator.class      | Java            |         16 |          0 |          0 |         16 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\RegistrationController.class | Java            |         16 |          0 |          0 |         16 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\SecurityConfig.class         | Java            |         16 |         24 |          0 |         40 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\SimpleMeetingSearch.class    | Java            |         25 |          0 |          0 |         25 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\UserFilter.class             | Java            |         13 |          0 |          0 |         13 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\UserProfile.class            | Java            |         41 |          0 |          0 |         41 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\UserProfileRepository.class  | Java            |          6 |          0 |          0 |          6 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\UserSelection.class          | Java            |         37 |          0 |          0 |         37 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\Valid.class                  | Java            |          3 |          0 |          0 |          3 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\ValidatorUserProfile.class   | Java            |         29 |          0 |          5 |         34 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\com\example\unimeets\WebSecurityConfig.class      | Java            |          7 |          0 |          0 |          7 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\public\error\404.html                             | HTML            |         75 |          0 |          8 |         83 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\contact.css                            | CSS             |         74 |          0 |         13 |         87 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\explore.css                            | CSS             |         92 |          5 |         14 |        111 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\match.css                              | CSS             |         74 |          1 |         11 |         86 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\notifications.css                      | CSS             |         49 |          4 |         10 |         63 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\profile.css                            | CSS             |          0 |          0 |          1 |          1 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\profilecreation.css                    | CSS             |        162 |         11 |         22 |        195 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\signup.css                             | CSS             |        101 |          7 |         19 |        127 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\style.css                              | CSS             |        383 |          7 |         83 |        473 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\css\welcome.css                            | CSS             |         93 |          4 |         15 |        112 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\js\main.js                                 | JavaScript      |        108 |         10 |         30 |        148 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\js\match.js                                | JavaScript      |         28 |          0 |          4 |         32 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\static\js\profilecreation.js                      | JavaScript      |         19 |          2 |          4 |         25 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\about.html                              | HTML            |         55 |          0 |         15 |         70 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\contact.html                            | HTML            |        124 |          0 |         28 |        152 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\explore.html                            | HTML            |        106 |          1 |         28 |        135 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\homescr.html                            | HTML            |        177 |          0 |         46 |        223 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\match.html                              | HTML            |         48 |          0 |         12 |         60 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\notifications.html                      | HTML            |        105 |          0 |         24 |        129 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\profilecreation.html                    | HTML            |        117 |          6 |         22 |        145 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\signup.html                             | HTML            |         48 |          0 |         18 |         66 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\classes\templates\welcome.html                            | HTML            |         57 |          0 |         16 |         73 |
+| c:\Users\emats\OneDrive\Desktop\3rd SEMESTER 2024-2025\CherriesProj\target\maven-archiver\pom.properties                             | Java Properties |          3 |          0 |          1 |          4 |
+| Total                                                                                                                                |                 |      8,272 |        244 |      1,322 |      9,838 |
++--------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
